@@ -56,15 +56,20 @@ div#content img.gravatar {
 }
 
 div#content dl {
-  margin-top: 5em;
+  margin-left: 2em;
 }
 
-div#content dt {
+div#content dl.description {
+  margin-left: 0;
+  margin-top: 2em;
+}
+
+div#content dl.description dt {
   float: left;
   font-weight: bold;
 }
 
-div#content dd {
+div#content dl.description dd {
   margin-left: 120px;
 }
 
