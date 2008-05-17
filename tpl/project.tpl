@@ -7,7 +7,7 @@
 
       <p property="doap:description">{$description}</p>
 
-      <dl>
+      <dl class="description">
 
         <dt>Homepage:</dt>
         <dd><a href="{$homepage}" rel="doap:homepage">{$homepage}</a></dd>
