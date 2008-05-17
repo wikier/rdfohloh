@@ -9,7 +9,7 @@
       
       <div id="map" style="width: 300px; height: 250px; float: right;"></div>
 
-      <dl>
+      <dl class="description">
 
         <dt>Kudo rank:</dt>
         <dd><a href="http://www.ohloh.net/people?show={$id}"><img src="{$ROOT}resources/images/laurel_{$kudo_rank}.png" alt="#{$kudo_rank}" /></a></dd>

@@ -25,6 +25,66 @@
       <a href="http://www.ohloh.net/api">Ohloh's API</a>.
     </p>
 
+    <h3>URIs schema</h3>
+
+    <p>
+      RDFohloh generates instances of two kind of classes:
+    </p>
+    
+    <dl>
+      <dt>
+        <tt>doap:Project</tt>
+      </dt>
+      <dd>
+        <tt>http://rdfohloh.wikier.org/project/ID</tt>
+        (<a href="http://rdfohloh.wikier.org/project/13509">example</a>), where ID is
+        the numerical ID of the project in Ohloh. But if the project also has a URL name 
+        in Ohloh (it's not mandatory), ID could also be that name 
+        (<a href="http://rdfohloh.wikier.org/project/swaml">example</a>); it that cases 
+        a <tt>owl:sameAs</tt> asserts are automatically generated.
+      </dd>
+      <dt>
+        <tt>sioc:User</tt>
+      </dt>
+      <dd>
+        <tt>http://rdfohloh.wikier.org/user/ID</tt>
+        (<a href="http://rdfohloh.wikier.org/user/17685">example</a>), where ID
+        is the numerical ID of the user in Ohloh.
+      </dd>
+    </dl>
+
+    <p>
+      For each URI, using content negotiation, it generated three representations
+      of RDF (, 
+       and 
+      ) of the entity,
+      following the next schema:
+    </p>
+
+    <dl>
+      <dt>
+        <a href="http://www.w3.org/TR/rdfa-syntax/">XHTML+RDFa</a>
+      </dt>
+      <dd>
+        http://rdfohloh.wikier.org/ENTITY/ID/html
+        (<a href="http://rdfohloh.wikier.org/project/swaml/html">example</a>)
+      </dd>
+      <dt>
+        <a href="http://www.w3.org/TR/rdf-syntax-grammar/">RDF/XML</a>
+      </dt>
+      <dd>
+        http://rdfohloh.wikier.org/ENTITY/ID/rdf
+        (<a href="http://rdfohloh.wikier.org/project/swaml/rdf">example</a>)
+      </dd>
+      <dt>
+        <a href="http://www.w3.org/TeamSubmission/n3/">RDF in N3</a>
+      </dt>
+      <dd>
+        http://rdfohloh.wikier.org/ENTITY/ID/n3
+        (<a href="http://rdfohloh.wikier.org/project/swaml/n3">example</a>)
+      </dd>
+    </dl>
+
     <h3>Libraries used</h3>
     <p>
       The project is written in <span property="doap:programming-language">PHP</span>, and it 
