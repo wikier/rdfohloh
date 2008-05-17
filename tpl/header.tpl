@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{$ROOT}resources/style.css" />
     <link rel="shortcut icon" href="{$ROOT}resources/images/favicon.ico" />
     <link rel="meta" type="application/rdf+xml" title="DOAP" href="http://www.w3.org/2007/08/pyRdfa/extract?uri={$ROOT}about" />
+    <link rel="dct:creator" type="application/rdf+xml" title="FOAF" href="http://www.wikier.org/foaf#wikier" />
     <script type="text/javascript" src="{$ROOT}resources/scripts.js"></script>
     {$include}
   </head>
