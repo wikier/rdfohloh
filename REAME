@@ -1,0 +1,19 @@
+
+RDFohloh
+--------
+
+RDFohloh is a RDF  wrapper of Ohloh. Using content negotiation, it 
+provides Ohloh's information in RDF data, serialized both in XHTML+RDFa, 
+RDF/XML and N3.
+
+This project has been developed by Sergio Fernández in his free time, 
+nd without any particular relation with funding of another project. 
+The service is provided without any warranty under the terms of Ohloh's API.
+
+The project is written in PHP, and it uses some free software libraries:
+    * Ohloh API for PHP
+    * cURL
+    * PHP Content Negotiation library
+    * RAP
+    * Smarty Template Engine
+
