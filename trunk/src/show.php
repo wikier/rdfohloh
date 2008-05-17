@@ -1,0 +1,66 @@
+<?php
+
+/*
+ *
+ * This file is part of RDFohloh.
+ *
+ * RDFohloh is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Foobar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+include(RDFOHLOH_SRC . "entities.php");
+
+function rdfohloh_show($path) {
+    //FIXME
+    $splitted = split("/", $path);
+    switch (count($splitted)) {
+
+        case 1:   
+                show_static_section($splitted[0]);
+                break;
+
+        case 3:
+                show_entity($splitted[0], $splitted[1], $splitted[2]);
+                break;
+
+        default:
+                show_static_section(HOME);
+
+    }
+
+}
+
+function show_static_section($name) {
+    $sec = new StaticSection($name);
+    $sec->getHTML();
+}
+
+function show_entity($type, $id, $format) {
+    $entity = null;
+    if ($type == PROJECT) {
+        $entity = new Project($id);
+    } else if ($type == USER) {
+        $entity = new User($id);
+    }
+
+    if ($format == RDF) {
+        $entity->getRDF();
+    } else if ($format == N3) {
+        $entity->getN3();
+    } else {
+        $entity->getHTML();
+    }
+}
+
+?>
