@@ -54,11 +54,8 @@
     </dl>
 
     <p>
-      For each URI, using content negotiation, it generated three representations
-      of RDF (, 
-       and 
-      ) of the entity,
-      following the next schema:
+      For each URI, using content negotiation, it's generated three representations
+      of RDF of the entity following the next schema:
     </p>
 
     <dl>
