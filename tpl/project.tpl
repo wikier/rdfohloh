@@ -29,7 +29,7 @@
 
         <dt>Contributors:</dt>
         {foreach from=$contributors item=item}
-        <dd><a href="{$item[0]}" rel="doap:developer">{$item[1]}</a></dd>
+        <dd><a href="{$ROOT}user/{$item[0]}" rel="doap:developer">{$item[1]}</a></dd>
         {/foreach}
 
       </dl>

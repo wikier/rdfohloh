@@ -75,7 +75,7 @@ class Project {
             $this->info["contributors"] = array();
             $contributors = $ohloh->getProjectContributors($this->id);
             foreach ($contributors->contributor_fact as $contributor) {
-                $this->info["contributors"][] = array(RDFOHLOH_BASE_URI . "user/" . $contributor->account_id[0], $contributor->account_name[0]);
+                $this->info["contributors"][] = array($contributor->account_id[0], $contributor->account_name[0]);
             }
             return true;
         } else {
@@ -164,7 +164,8 @@ EXCERPT;
             $model->add(new Statement($project, new Resource($ns["rdfohloh"], "ohloh-page"), new Resource((string)"http://www.ohloh.net/projects/" .$this->info["url_name"])));
         if (strlen($this->info["language"])>0)
             $model->add(new Statement($project, new Resource($ns["doap"], "programming-language"), new Literal((string)$this->info["language"])));
-        //$tpl->assign("contributors", $this->info["contributors"]);
+        foreach ($this->info["contributors"] as $contributor)
+            $model->add(new Statement($project, new Resource($ns["doap"], "developer"), new Resource(RDFOHLOH_BASE_URI . "user/" . (string)$contributor[0])));
         return $model;
     }
 
