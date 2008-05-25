@@ -110,6 +110,11 @@ div#content form {
   margin: 0 auto; 
 }
 
+div#adsense {
+  margin-top: 3em;
+  text-align: center;
+}
+
 div#footer {
   border-top: 2px solid #aaa;
   background: #555;
