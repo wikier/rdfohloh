@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:dct="http://purl.org/dc/terms/"
+   xml:base="http://rdfohloh.wikier.org/resources/ns"
+>
+
+  <rdf:Description rdf:about="">
+    <rdfs:label>RDFohloh</rdfs:label>
+    <rdfs:comment>Some properties to represent Ohloh in RDF</rdfs:comment>
+    <dct:creator rdf:resource="http://www.wikier.orf/foaf#wikier" />
+  </rdf:Description>
+
+  <owl:ObjectProperty rdf:about="#ohloh-page">
+    <rdfs:label>ohloh page</rdfs:label>
+    <rdfs:comment>page in ohloh</rdfs:comment>
+    <rdf:subPropertyOf rdf:resource="http://xmlns.com/foaf/0.1/homepage" />
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty" />
+    <rdfs:domain>
+      <owl:Class>    
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://usefulinc.com/ns/doap#Project" />
+          <owl:Class rdf:about="http://rdfs.org/sioc/ns#User" />
+        </owl:unionOf>
+      </owl:Class> 
+    </rdfs:domain>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#kudo-rank">
+    <rdfs:label>kudo rank</rdfs:label>
+    <rdfs:comment>kudo-rank in ohloh</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdfs.org/sioc/ns#User" />
+    <rdfs:range rdf:resource="ttp://www.w3.org/2000/01/rdf-schema#Literal" />
+  </owl:ObjectProperty>
+
+</rdf:RDF>
+
