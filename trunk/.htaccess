@@ -22,7 +22,7 @@ DirectoryIndex index.php
 <IfModule mod_rewrite.c>
   RewriteEngine on
   RewriteBase /
-  RewriteRule ^ns resources/rdfohloh.rdf [R=303]
+  RewriteRule ^ns /resources/rdfohloh.rdf [R=303]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^(.*)$ index.php?uri=$1 [L,QSA]
