@@ -1,6 +1,18 @@
 
     </div>
 
+    <div id="adsense">
+      <script type="text/javascript"><!--
+        google_ad_client = "pub-8526284355576873";
+        /* 728x90, creado 25/05/08 */
+        google_ad_slot = "1433742017";
+        google_ad_width = 728;
+        google_ad_height = 90;
+        //-->
+      </script>
+      <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+    </div>
+
     <div id="footer">
 
       <div class='row'>
