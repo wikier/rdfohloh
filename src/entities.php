@@ -75,7 +75,8 @@ class Project {
             $this->info["contributors"] = array();
             $contributors = $ohloh->getProjectContributors($this->id);
             foreach ($contributors->contributor_fact as $contributor) {
-                $this->info["contributors"][] = array($contributor->account_id[0], $contributor->account_name[0]);
+                if ($contributor->account_id[0] != NULL)
+                    $this->info["contributors"][] = array($contributor->account_id[0], $contributor->account_name[0]);
             }
             return true;
         } else {
