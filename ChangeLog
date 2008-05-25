@@ -1,0 +1,10 @@
+
+2008-05-25  v0.2    - Fixed RDF export (issues with namespaces, external URIs, etc.)
+                    - More checks of empty values from Ohloh’s API
+                    - Added documentation about URIs schema
+                    - Improved definition of OWL properties
+                    - Many other optimizations and fixes
+
+2008-05-04  v0.1    - First release with basic features
+
+
