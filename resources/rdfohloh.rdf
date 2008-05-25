@@ -5,11 +5,11 @@
    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
    xmlns:owl="http://www.w3.org/2002/07/owl#"
    xmlns:dct="http://purl.org/dc/terms/"
-   xml:base="http://rdfohloh.wikier.org/resources/ns"
+   xml:base="http://rdfohloh.wikier.org/ns"
 >
 
   <rdf:Description rdf:about="">
-    <rdfs:label>RDFohloh</rdfs:label>
+    <rdfs:label>RDFohloh schema</rdfs:label>
     <rdfs:comment>Some properties to represent Ohloh in RDF</rdfs:comment>
     <dct:creator rdf:resource="http://www.wikier.orf/foaf#wikier" />
   </rdf:Description>

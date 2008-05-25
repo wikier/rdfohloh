@@ -137,7 +137,7 @@ EXCERPT;
                     "doap" => "http://usefulinc.com/ns/doap#" ,
                     "sioc" => "http://rdfs.org/sioc/ns#" ,
                     "foaf" => "http://xmlns.com/foaf/0.1/" ,
-                    "rdfohloh" => RDFOHLOH_BASE_URI . "resources/ns#"
+                    "rdfohloh" => RDFOHLOH_BASE_URI . "ns#"
                    );
         $model = ModelFactory::getDefaultModel();
         $model->addNamespace("dct", $ns["dct"]);
@@ -317,7 +317,7 @@ EXCERPT;
                     "doap" => "http://usefulinc.com/ns/doap#" ,
                     "sioc" => "http://rdfs.org/sioc/ns#" ,
                     "foaf" => "http://xmlns.com/foaf/0.1/" ,
-                    "rdfohloh" => RDFOHLOH_BASE_URI . "resources/ns#"
+                    "rdfohloh" => RDFOHLOH_BASE_URI . "ns#"
                    );
         $model = ModelFactory::getDefaultModel();
         $model->addNamespace("dct", $ns["dct"]);
