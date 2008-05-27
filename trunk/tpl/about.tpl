@@ -28,7 +28,10 @@
     <h3>URIs schema</h3>
 
     <p>
-      RDFohloh generates instances of two kind of classes:
+      RDFohloh generates URIs in this form: <tt>http://rdfohloh.wikier.org/ENTITY/ID</tt>,
+      replacing <tt>ENTITY</tt> for the name of the entity in singular and <tt>ID</tt> for
+      entity's ID in Ohloh. Mainly in Ohloh there are two kind of entities (projects and
+      users), so RDFohloh generates two kind of RDF instances:
     </p>
     
     <dl>
@@ -40,8 +43,8 @@
         (<a href="http://rdfohloh.wikier.org/project/13509">example</a>), where ID is
         the numerical ID of the project in Ohloh. But if the project also has a URL name 
         in Ohloh (it's not mandatory), ID could also be that name 
-        (<a href="http://rdfohloh.wikier.org/project/swaml">example</a>); it that cases 
-        a <tt>owl:sameAs</tt> asserts are automatically generated.
+        (<a href="http://rdfohloh.wikier.org/project/swaml">example</a>); in that cases 
+        <tt>owl:sameAs</tt> asserts are automatically generated.
       </dd>
       <dt>
         <tt>sioc:User</tt>
