@@ -37,7 +37,7 @@
             <h4>About</h4>
             <p>
               <a href="http://rdfohloh.wikier.org/">RDFohloh</a> is a RDF wrapper of
-              <a href="http://rdfohloh.net/">Ohloh</a>. Its author doesn't have any 
+              <a href="http://ohloh.net/">Ohloh</a>. Its author doesn't have any 
               relation with the company behind Ohloh.
             </p>
           </div>
