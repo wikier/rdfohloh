@@ -165,8 +165,11 @@ EXCERPT;
             $model->add(new Statement($project, new Resource($ns["rdfohloh"], "ohloh-page"), new Resource((string)"http://www.ohloh.net/projects/" .$this->info["url_name"])));
         if (strlen($this->info["language"])>0)
             $model->add(new Statement($project, new Resource($ns["doap"], "programming-language"), new Literal((string)$this->info["language"])));
-        foreach ($this->info["contributors"] as $contributor)
-            $model->add(new Statement($project, new Resource($ns["doap"], "developer"), new Resource(RDFOHLOH_BASE_URI . "user/" . (string)$contributor[0])));
+        foreach ($this->info["contributors"] as $contributor) {
+            $uri = RDFOHLOH_BASE_URI . "user/" . (string)$contributor[0];
+            $model->add(new Statement($project, new Resource($ns["doap"], "developer"), new Resource($uri)));
+            $model->add(new Statement(new Resource($uri), new Resource($ns["rdfs"], "seeAlso"), new Resource($uri . "/rdf")));
+        }
         return $model;
     }
 
