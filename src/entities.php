@@ -168,6 +168,7 @@ EXCERPT;
         foreach ($this->info["contributors"] as $contributor) {
             $uri = RDFOHLOH_BASE_URI . "user/" . (string)$contributor[0];
             $model->add(new Statement($project, new Resource($ns["doap"], "developer"), new Resource($uri)));
+            $model->add(new Statement(new Resource($uri), new Resource($ns["rdf"], "type"), new Resource($ns["sioc"], "User")));
             $model->add(new Statement(new Resource($uri), new Resource($ns["rdfs"], "seeAlso"), new Resource($uri . "/rdf")));
         }
         return $model;
