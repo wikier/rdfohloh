@@ -101,8 +101,8 @@ RDFod usage:
 if __name__ == "__main__":
 
     #default values (retrieved on June 9, 2008)
-    users = 1
-    projects = 1
+    users = 135270
+    projects = 13711
     directory = "rdfohloh_dump"
     socket.setdefaulttimeout(10)
 
