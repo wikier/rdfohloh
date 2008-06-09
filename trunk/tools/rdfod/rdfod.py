@@ -123,7 +123,7 @@ if __name__ == "__main__":
                         pass
                 if (len(args)>2):
                     directory = args[2]
-                RDFod(users, projects, directory)
+        RDFod(users, projects, directory)
     except KeyboardInterrupt:
         print 'Received Ctrl+C or another break signal. Exiting...'
 
