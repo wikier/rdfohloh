@@ -19,19 +19,55 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with RDFohloh.  If not, see <http://www.gnu.org/licenses/>.
+# along with RDFohloh. If not, see <http://www.gnu.org/licenses/>.
 
 import sys
 import os
 import urllib2
+import time
 import socket
 
+#default values (retrieved on June 9, 2008)
+nusers = 135270
+nprojects = 13711
+sleep = 1
+timeout = 10
 
 class RDFod:
 
-    def __init__(self, users, projects, directory):
-        self.nusers = users
-        self.nprojects = projects
+    def __init__(self, users, projects, directory="rdfohloh_dump"):
+        if (len(users.split("-"))>1):
+            try:
+                self.start_users = int(users.split("-")[0])
+            except ValueError:
+                self.start_users = 1
+            try:
+                self.end_users = int(users.split("-")[1])
+            except ValueError:
+                self.start_users = nusers
+        else:
+            self.start_users = 1
+            try:
+                self.end_users = int(users)
+            except ValueError:
+                self.start_users = nusers
+        
+        if (len(projects.split("-"))>1):
+            try:
+                self.start_projects = int(projects.split("-")[0])
+            except ValueError:
+                self.start_projects = 1
+            try:
+                self.end_projects = int(projects.split("-")[1])
+            except ValueError:
+                self.end_projects = nprojects
+        else:
+            self.start_projects = 1
+            try:
+                self.end_projects = int(projects)
+            except ValueError:
+                self.end_projects = nprojects
+        
         self.directory = directory
         self.uri_template = "http://rdfohloh.wikier.org/%s/%i/rdf"
         self.prepare()
@@ -48,23 +84,30 @@ class RDFod:
     def retrieve(self):
         types = ["user", "project"]
         for t in types:
-            n = self.__dict__["n"+t+"s"]
-            for i in range(1, n+1):
-                uri = self.uri_template % (t, i)
-                data = self.get(uri)
-                if (data != None):
-                    path = self.directory + "/" + t + "s/" + str(i) + ".rdf"
-                    if (self.save(path, data)):
-                        print "Successfully retrieved %s #%i" % (t, i)
+            start = self.__dict__["start_"+t+"s"]
+            end = self.__dict__["end_"+t+"s"]
+            if (start>0 and start<=end):
+                print
+                print "Starting crawling process for %ss with IDs between %i and %i" %(t, start, end)
+                print
+                for i in range(start, end+1):
+                    uri = self.uri_template % (t, i)
+                    data = self.get(uri)
+                    if (data != None):
+                        path = self.directory + "/" + t + "s/" + str(i) + ".rdf"
+                        if (self.save(path, data)):
+                            print "Successfully retrieved %s #%i" % (t, i)
+                        else:
+                            print "Failed saving %s #%i" % (t, i)
                     else:
-                        print "Failed saving %s #%i" % (t, i)
-                else:
-                    print "Failed retrieving %s #%i" % (t, i)
+                        print "Failed retrieving %s #%i" % (t, i)
+                    time.sleep(sleep)
 
     def get(self, uri):
         try:
             return HTTPClient.GET(uri)
         except Exception, details:
+            print details
             return None
 
     def save(self, path, data):
@@ -82,8 +125,11 @@ class HTTPClient:
     
     @staticmethod
     def GET(uri):
-        headers = { 'User-Agent' : "RDFod (<http://rdfohloh.googlecode.com/; sergio@wikier.org)" }
-        request = urllib2.Request(uri)
+        headers = {
+                    "User-Agent" : "RDFod (<http://rdfohloh.googlecode.com/; sergio@wikier.org)",
+                    "Accept"     : "application/rdf+xml"
+                  }
+        request = urllib2.Request(uri, headers=headers)
         response = urllib2.urlopen(request)
         return response.read()
 
@@ -93,37 +139,34 @@ def usage():
     print """
 RDFod usage:
 
-    $ python rdfod.py [nusers] [nprojects] [directory]
+    $ python rdfod.py [nusers] [nprojects]
+
+Numbers could be simple values (starting in 1) or ranges.
+
+Some examples:
+
+    $ python rdfod.py 500 500
+
+    $ python rdfod.py 501-1000 1-500
 
 """
     sys.exit()
 
 if __name__ == "__main__":
 
-    #default values (retrieved on June 9, 2008)
-    users = 135270
-    projects = 13711
-    directory = "rdfohloh_dump"
     socket.setdefaulttimeout(10)
-
+    users = str(nusers)
+    projects = str(nprojects)
     try:
         args = sys.argv[1:]
         if (len(args)>0):
             if (args[0]=="--help" or args[0]=="-h"):
                 usage()
             else:
-                try:
-                    users = int(args[0])
-                except ValueError:
-                    pass
+                users = args[0]
                 if (len(args)>1):
-                    try:
-                        projects = int(args[1])                    
-                    except ValueError:
-                        pass
-                if (len(args)>2):
-                    directory = args[2]
-        RDFod(users, projects, directory)
+                    projects = args[1]
+        RDFod(users, projects)
     except KeyboardInterrupt:
-        print 'Received Ctrl+C or another break signal. Exiting...'
+        print "Received Ctrl+C or another break signal. Exiting..."
 
