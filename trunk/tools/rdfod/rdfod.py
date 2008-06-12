@@ -26,10 +26,11 @@ import os
 import urllib2
 import time
 import socket
+import logging
 
-#default values (retrieved on June 9, 2008)
-nusers = 135270
-nprojects = 13711
+#default values (retrieved on June 12, 2008)
+nusers = 135899
+nprojects = 13774
 sleep = 1
 timeout = 10
 
@@ -71,15 +72,24 @@ class RDFod:
         self.directory = directory
         self.uri_template = "http://rdfohloh.wikier.org/%s/%i/rdf"
         self.prepare()
+        self.logger.info("Starting RDFod")
         self.retrieve()
 
     def prepare(self):
+        #prepare directories
         if not (os.path.exists(self.directory)):
             os.mkdir(self.directory)
         if not (os.path.exists(self.directory + "/users")):
             os.mkdir(self.directory + "/users")
         if not (os.path.exists(self.directory + "/projects")):
             os.mkdir(self.directory + "/projects")
+
+        #configure logger
+        self.logger = logging.getLogger("rdfod")
+        self.logger.setLevel(logging.DEBUG)
+        hdlr = logging.FileHandler("rdfod.log")
+        hdlr.setFormatter(logging.Formatter("%(asctime)s %(name)s %(levelname)s: %(message)s"))
+        self.logger.addHandler(hdlr)
 
     def retrieve(self):
         types = ["user", "project"]
@@ -88,7 +98,7 @@ class RDFod:
             end = self.__dict__["end_"+t+"s"]
             if (start>0 and start<=end):
                 print
-                print "Starting crawling process for %ss with IDs between %i and %i" %(t, start, end)
+                self.logger.info("Starting crawling process for %ss with IDs between %i and %i" %(t, start, end))
                 print
                 for i in range(start, end+1):
                     uri = self.uri_template % (t, i)
@@ -96,11 +106,11 @@ class RDFod:
                     if (data != None):
                         path = self.directory + "/" + t + "s/" + str(i) + ".rdf"
                         if (self.save(path, data)):
-                            print "Successfully retrieved %s #%i" % (t, i)
+                            self.logger.info("Successfully retrieved %s #%i" % (t, i))
                         else:
-                            print "Failed saving %s #%i" % (t, i)
+                            self.logger.error("Failed saving %s #%i" % (t, i))
                     else:
-                        print "Failed retrieving %s #%i" % (t, i)
+                        self.logger.error("Failed retrieving %s #%i" % (t, i))
                     time.sleep(sleep)
 
     def get(self, uri):
