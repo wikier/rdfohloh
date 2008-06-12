@@ -1,0 +1,7 @@
+#robots.txt of RDFohloh
+
+User-agent: *
+Disallow: /lib/
+
+Sitemap:http://rdfohloh.wikier.org/sitemap.xml
+
