@@ -117,7 +117,7 @@ class RDFod:
         try:
             return HTTPClient.GET(uri)
         except Exception, details:
-            print details
+            self.logger.error("Error requesting %s: %s" %(uri, details))
             return None
 
     def save(self, path, data):
