@@ -332,6 +332,7 @@ EXCERPT;
         $model->addNamespace("doap", $ns["doap"]);
         $model->addNamespace("sioc", $ns["sioc"]);
         $model->addNamespace("foaf", $ns["foaf"]);
+        $model->addNamespace("geo", $ns["geo"]);
         $model->addNamespace("rdfohloh", $ns["rdfohloh"]);
         $user = new Resource($uri);
         $doc = new Resource($uri . "/" . $format);
