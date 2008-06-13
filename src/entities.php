@@ -349,11 +349,11 @@ EXCERPT;
         if (strlen($this->info["homepage"])>0)
             $model->add(new Statement($user, new Resource($ns["foaf"], "homepage"), new Resource((string)$this->info["homepage"])));
         $model->add(new Statement($user, new Resource($ns["rdfohloh"], "ohloh-page"), new Resource((string)$this->info["ohloh_url"])));
-        $model->add(new Statement($user, new Resource($ns["foaf"], "based_near"), $geo_point));
         $model->add(new Statement($user, new Resource($ns["sioc"], "link"), new Resource($uri . "/html")));
         $geo_point = new BlankNode($model);
         $model->add(new Statement($geo_point, new Resource($ns["geo"], "lat"), new Literal((string)$this->info["geo"][0])));
         $model->add(new Statement($geo_point, new Resource($ns["geo"], "long"), new Literal((string)$this->info["geo"][1])));
+        $model->add(new Statement($user, new Resource($ns["foaf"], "based_near"), $geo_point));
         return $model;
     }
 
