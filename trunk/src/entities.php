@@ -324,6 +324,7 @@ EXCERPT;
                     "doap" => "http://usefulinc.com/ns/doap#" ,
                     "sioc" => "http://rdfs.org/sioc/ns#" ,
                     "foaf" => "http://xmlns.com/foaf/0.1/" ,
+                    "geo" => "http://www.w3.org/2003/01/geo/wgs84_pos#" ,
                     "rdfohloh" => RDFOHLOH_BASE_URI . "ns#"
                    );
         $model = ModelFactory::getDefaultModel();
@@ -348,7 +349,10 @@ EXCERPT;
             $model->add(new Statement($user, new Resource($ns["foaf"], "homepage"), new Resource((string)$this->info["homepage"])));
         $model->add(new Statement($user, new Resource($ns["rdfohloh"], "ohloh-page"), new Resource((string)$this->info["ohloh_url"])));
         $model->add(new Statement($user, new Resource($ns["sioc"], "link"), new Resource($uri . "/html")));
-        //FIXME geo
+        $geo_point = new BlankNode($model);
+        $model->add(new Statement($geo_point, new Resource($ns["geo"], "lat"), new Literal((string)$this->info["geo"][0])));
+        $model->add(new Statement($geo_point, new Resource($ns["geo"], "long"), new Literal((string)$this->info["geo"][1])));
+        $model->add(new Statement($user, new Resource($ns["foaf"], "based_near"), $geo_point));
         return $model;
     }
 
