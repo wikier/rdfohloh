@@ -334,9 +334,6 @@ EXCERPT;
         $model->addNamespace("foaf", $ns["foaf"]);
         $model->addNamespace("geo", $ns["geo"]);
         $model->addNamespace("rdfohloh", $ns["rdfohloh"]);
-        $geo_point = new BlankNode($model);
-        $model->add(new Statement($geo_point, new Resource($ns["geo"], "lat"), new Literal((string)$this->info["geo"][0])));
-        $model->add(new Statement($geo_point, new Resource($ns["geo"], "long"), new Literal((string)$this->info["geo"][1])));
         $user = new Resource($uri);
         $doc = new Resource($uri . "/" . $format);
         $model->add(new Statement($doc, new Resource($ns["rdf"], "type"), new Resource($ns["foaf"], "Document")));
@@ -354,6 +351,9 @@ EXCERPT;
         $model->add(new Statement($user, new Resource($ns["rdfohloh"], "ohloh-page"), new Resource((string)$this->info["ohloh_url"])));
         $model->add(new Statement($user, new Resource($ns["foaf"], "based_near"), $geo_point));
         $model->add(new Statement($user, new Resource($ns["sioc"], "link"), new Resource($uri . "/html")));
+        $geo_point = new BlankNode($model);
+        $model->add(new Statement($geo_point, new Resource($ns["geo"], "lat"), new Literal((string)$this->info["geo"][0])));
+        $model->add(new Statement($geo_point, new Resource($ns["geo"], "long"), new Literal((string)$this->info["geo"][1])));
         return $model;
     }
 
