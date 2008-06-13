@@ -27,6 +27,7 @@ import urllib2
 import time
 import socket
 import logging
+from rdflib.Graph import ConjunctiveGraph
 
 #default values (retrieved on June 12, 2008)
 nusers = 135899
@@ -103,7 +104,7 @@ class RDFod:
                 for i in range(start, end+1):
                     uri = self.uri_template % (t, i)
                     data = self.get(uri)
-                    if (data != None):
+                    if (data!=None and self.isRDF(data)):
                         path = self.directory + "/" + t + "s/" + str(i) + ".rdf"
                         if (self.save(path, data)):
                             self.logger.info("Successfully retrieved %s #%i" % (t, i))
@@ -117,8 +118,16 @@ class RDFod:
         try:
             return HTTPClient.GET(uri)
         except Exception, details:
-            self.logger.error("Error requesting %s: %s" %(uri, details))
+            #self.logger.error("Error requesting %s: %s" %(uri, details))
             return None
+
+    def isRDF(self, data):
+        g = ConjunctiveGraph()
+        try:
+            g.load(data, format="xml")
+            return True
+        except:
+            return False
 
     def save(self, path, data):
         try:    
