@@ -140,17 +140,21 @@ EXCERPT;
                     "foaf" => "http://xmlns.com/foaf/0.1/" ,
                     "rdfohloh" => RDFOHLOH_BASE_URI . "ns#"
                    );
+        
         $model = ModelFactory::getDefaultModel();
         $model->addNamespace("dct", $ns["dct"]);
         $model->addNamespace("doap", $ns["doap"]);
         $model->addNamespace("sioc", $ns["sioc"]);
         $model->addNamespace("foaf", $ns["foaf"]);
         $model->addNamespace("rdfohloh", $ns["rdfohloh"]);
+        
         $project = new Resource($uri);
         $doc = new Resource($uri . "/" . $format);
         $model->add(new Statement($doc, new Resource($ns["rdf"], "type"), new Resource($ns["foaf"], "Document")));
         $model->add(new Statement($doc, new Resource($ns["rdfs"], "label"), new Literal($this->name . "'s DOAP document serialized in " . (($format==N3) ? "n3" : "RDF/XML"))));
         $model->add(new Statement($doc, new Resource($ns["foaf"], "primaryTopic"), $project));
+        $model->add(new Statement($doc, new Resource($ns["dct"], "isFormatOf"), $project));
+        
         $model->add(new Statement($project, new Resource($ns["rdf"], "type"), new Resource($ns["doap"], "Project")));
         $model->add(new Statement($project, new Resource($ns["doap"], "name"), new Literal((string)$this->name)));
         if (strlen($this->info["sameAs"])>0)
@@ -327,6 +331,7 @@ EXCERPT;
                     "geo" => "http://www.w3.org/2003/01/geo/wgs84_pos#" ,
                     "rdfohloh" => RDFOHLOH_BASE_URI . "ns#"
                    );
+        
         $model = ModelFactory::getDefaultModel();
         $model->addNamespace("dct", $ns["dct"]);
         $model->addNamespace("doap", $ns["doap"]);
@@ -334,11 +339,14 @@ EXCERPT;
         $model->addNamespace("foaf", $ns["foaf"]);
         $model->addNamespace("geo", $ns["geo"]);
         $model->addNamespace("rdfohloh", $ns["rdfohloh"]);
+        
         $user = new Resource($uri);
         $doc = new Resource($uri . "/" . $format);
         $model->add(new Statement($doc, new Resource($ns["rdf"], "type"), new Resource($ns["foaf"], "Document")));
         $model->add(new Statement($doc, new Resource($ns["rdfs"], "label"), new Literal($this->name . "'s SIOC document serialized in " . (($format==N3) ? "n3" : "RDF/XML"))));
         $model->add(new Statement($doc, new Resource($ns["foaf"], "primaryTopic"), $user));
+        $model->add(new Statement($doc, new Resource($ns["dct"], "isFormatOf"), $user));
+        
         $model->add(new Statement($user, new Resource($ns["rdf"], "type"), new Resource($ns["sioc"], "User")));
         $model->add(new Statement($user, new Resource($ns["sioc"], "id"), new Literal((string)$this->id)));
         $model->add(new Statement($user, new Resource($ns["sioc"], "name"), new Literal((string)$this->name)));
