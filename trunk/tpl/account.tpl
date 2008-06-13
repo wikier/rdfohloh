@@ -15,7 +15,7 @@
         <dd><a href="http://www.ohloh.net/people?show={$id}"><img src="{$ROOT}resources/images/laurel_{$kudo_rank}.png" alt="#{$kudo_rank}" /></a></dd>
 
         <dt>Location:</dt>
-        <dd>{$location}</a></dd>
+        <dd>{$location}</dd>
 
         <dt>Homepage:</dt>
         <dd><a href="{$homepage}" rel="foaf:homepage">{$homepage}</a></dd>
