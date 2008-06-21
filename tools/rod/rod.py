@@ -2,7 +2,7 @@
 # -*- coding: utf8 -*-
 #
 # RDFohloh <http://rdfohloh.googlecode.com/>
-# RDFod, RDFohloh dump tool
+# ROD, RDFohloh dump tool
 #
 # Copyright (C) 2008 Sergio Fernández
 #
@@ -28,14 +28,19 @@ import time
 import socket
 import logging
 from rdflib.Graph import ConjunctiveGraph
+from cStringIO import StringIO
 
-#default values (retrieved on June 12, 2008)
-nusers = 135899
-nprojects = 13774
+#default values (retrieved on June 21, 2008)
+nusers = 138228
+nprojects = 13960
+
+#configuration
 sleep = 1
+fail = 10
 timeout = 10
+attempts = 5
 
-class RDFod:
+class ROD:
 
     def __init__(self, users, projects, directory="rdfohloh_dump"):
         if (len(users.split("-"))>1):
@@ -73,7 +78,7 @@ class RDFod:
         self.directory = directory
         self.uri_template = "http://rdfohloh.wikier.org/%s/%i/rdf"
         self.prepare()
-        self.logger.info("Starting RDFod")
+        self.logger.info("Starting ROD")
         self.retrieve()
 
     def prepare(self):
@@ -86,9 +91,9 @@ class RDFod:
             os.mkdir(self.directory + "/projects")
 
         #configure logger
-        self.logger = logging.getLogger("rdfod")
+        self.logger = logging.getLogger("rod")
         self.logger.setLevel(logging.DEBUG)
-        hdlr = logging.FileHandler("rdfod.log")
+        hdlr = logging.FileHandler("rod.log")
         hdlr.setFormatter(logging.Formatter("%(asctime)s %(name)s %(levelname)s: %(message)s"))
         self.logger.addHandler(hdlr)
 
@@ -98,35 +103,41 @@ class RDFod:
             start = self.__dict__["start_"+t+"s"]
             end = self.__dict__["end_"+t+"s"]
             if (start>0 and start<=end):
-                print
                 self.logger.info("Starting crawling process for %ss with IDs between %i and %i" %(t, start, end))
-                print
                 for i in range(start, end+1):
+                    a = attempts
                     uri = self.uri_template % (t, i)
                     data = self.get(uri)
-                    if (data!=None and self.isRDF(data)):
+                    while (data==None and not self.isRDF(data, t, i) and a>0):
+                        a = a - 1
+                        time.sleep(fail)
+                        data = self.get(uri)
+                    if (a > 0):
                         path = self.directory + "/" + t + "s/" + str(i) + ".rdf"
                         if (self.save(path, data)):
                             self.logger.info("Successfully retrieved %s #%i" % (t, i))
                         else:
                             self.logger.error("Failed saving %s #%i" % (t, i))
                     else:
-                        self.logger.error("Failed retrieving %s #%i" % (t, i))
+                        self.logger.error("It was impossible to get %s #%i" % (t, i))
                     time.sleep(sleep)
+                    
+                self.logger.info("Finished crawling process for %ss" % t)
 
     def get(self, uri):
         try:
             return HTTPClient.GET(uri)
         except Exception, details:
-            #self.logger.error("Error requesting %s: %s" %(uri, details))
+            self.logger.debug("Error requesting %s: %s" %(uri, details))
             return None
 
-    def isRDF(self, data):
+    def isRDF(self, data, type, id):
         g = ConjunctiveGraph()
         try:
-            g.load(data, format="xml")
+            g.load(StringIO(data))
             return True
-        except:
+        except Exception, e:
+            self.logger.debug("Error parsing RDF of %s %i" %(type, id))
             return False
 
     def save(self, path, data):
@@ -145,7 +156,7 @@ class HTTPClient:
     @staticmethod
     def GET(uri):
         headers = {
-                    "User-Agent" : "RDFod (<http://rdfohloh.googlecode.com/; sergio@wikier.org)",
+                    "User-Agent" : "ROD (<http://rdfohloh.googlecode.com/; sergio@wikier.org)",
                     "Accept"     : "application/rdf+xml"
                   }
         request = urllib2.Request(uri, headers=headers)
@@ -156,17 +167,17 @@ class HTTPClient:
 def usage():
 
     print """
-RDFod usage:
+ROD usage:
 
-    $ python rdfod.py [nusers] [nprojects]
+    $ python rod.py [nusers] [nprojects]
 
-Numbers could be simple values (starting in 1) or ranges.
+Numbers could be simple values (so will start in 1) or ranges.
 
 Some examples:
 
-    $ python rdfod.py 500 500
+    $ python rod.py 500 500
 
-    $ python rdfod.py 501-1000 1-500
+    $ python rod.py 501-1000 1-500
 
 """
     sys.exit()
@@ -185,7 +196,7 @@ if __name__ == "__main__":
                 users = args[0]
                 if (len(args)>1):
                     projects = args[1]
-        RDFod(users, projects)
+        ROD(users, projects)
     except KeyboardInterrupt:
         print "Received Ctrl+C or another break signal. Exiting..."
 
