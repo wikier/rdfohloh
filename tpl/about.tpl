@@ -91,7 +91,7 @@
       <a href="http://www.ohloh.net/api">Ohloh's API</a> has some limitation of usage,
       so if you want to get all the data we are not able to serve all the data, for 
       example, for a crawling process. So we periodically (yearly, see
-      <a href="http://rdfohloh.wikier.org/sitemap.xml">semantic sitemap</a>) publish 
+      <a href="http://rdfohloh.wikier.org/sitemap.xml">our semantic sitemap</a>) publish 
       dumps of all the data:
 138228 13961
     </p>
