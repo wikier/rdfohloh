@@ -12,7 +12,7 @@
 >
 
   <head profile="http://www.w3.org/2003/g/data-view">
-    <title property="dc:title">RDFohloh</title>
+    <title property="dc:title">RDFohloh{$TITLE}</title>
     <meta http-equiv="content-type" content="text/xhtml+xml; charset=utf-8" />
     <link rel="transformation" href="http://www-sop.inria.fr/acacia/soft/RDFa2RDFXML.xsl"/>
     <link rel="stylesheet" type="text/css" href="{$ROOT}resources/style.css" />

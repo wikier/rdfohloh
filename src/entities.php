@@ -102,6 +102,7 @@ EXCERPT;
         $tpl->assign("ROOT", RDFOHLOH_BASE_URI);
         if ($this->exists) { 
             $uri = RDFOHLOH_BASE_URI . "project/" . strtolower($this->id);
+            $tpl->assign("TITLE", " - ".$this->name);
             $tpl->assign("name", $this->name); 
             $tpl->assign("uri", $uri);
             if (strlen($this->info["sameAs"])>0)
@@ -293,7 +294,8 @@ EXCERPT;
         $tpl->assign("ROOT", RDFOHLOH_BASE_URI);
         if ($this->exists) {
             $uri = RDFOHLOH_BASE_URI . "user/" . strtolower($this->id);
-            $tpl->assign("id", $this->id); 
+            $tpl->assign("id", $this->id);
+            $tpl->assign("TITLE", " - ".$this->name);
             $tpl->assign("name", $this->name); 
             $tpl->assign("uri", $uri);
             $tpl->assign("kudo_rank", $this->info["kudo_rank"]);
