@@ -92,8 +92,13 @@
       so if you want to get all the data we are not able to serve all the data, for 
       example, for a crawling process. So we periodically (yearly, see
       <a href="http://rdfohloh.wikier.org/sitemap.xml">our semantic sitemap</a>) publish 
-      dumps of all the data:
-138228 13961
+      dumps of all the data.
+    </p>
+
+    <p>
+      Here you can see a list of the dumps available in (gziped) 
+      <a href="http://www.w3.org/2001/sw/RDFCore/ntriples/">N-Triples</a> 
+      format:
     </p>
 
     <dl>
@@ -102,8 +107,7 @@
       </dt>
       <dd>
         A dump generated at June 22th of 2008 with 13,961 instances of <tt>doap:Project</tt>
-        and 138,228 instances of <tt>sioc:User</tt> in 
-        <a href="http://www.w3.org/2001/sw/RDFCore/ntriples/">N-Triples</a> format.
+        and 138,228 instances of <tt>sioc:User</tt>.
       <dd>
     </dl>
 
