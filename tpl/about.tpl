@@ -102,7 +102,8 @@
       </dt>
       <dd>
         A dump generated at June 22th of 2008 with 13,961 instances of <tt>doap:Project</tt>
-        and 138,228 instances of <tt>sioc:User</tt> in N-Triples format.
+        and 138,228 instances of <tt>sioc:User</tt> in 
+        <a href="http://www.w3.org/2001/sw/RDFCore/ntriples/">N-Triples</a> format.
       <dd>
     </dl>
 
