@@ -25,7 +25,7 @@
       <a href="http://www.ohloh.net/api">Ohloh's API</a>.
     </p>
 
-    <h3>URIs schema</h3>
+    <h3 id="uris">URIs schema</h3>
 
     <p>
       RDFohloh generates URIs in this form: <tt>http://rdfohloh.wikier.org/ENTITY/ID</tt>,
@@ -85,7 +85,28 @@
       </dd>
     </dl>
 
-    <h3>Libraries used</h3>
+    <h3 id="dumps">Dumps</h3>
+
+    <p>
+      <a href="http://www.ohloh.net/api">Ohloh's API</a> has some limitation of usage,
+      so if you want to get all the data we are not able to serve all the data, for 
+      example, for a crawling process. So we periodically (yearly, see
+      <a href="http://rdfohloh.wikier.org/sitemap.xml">semantic sitemap</a>) publish 
+      dumps of all the data:
+138228 13961
+    </p>
+
+    <dl>
+      <dt>
+        <a href="http://rdfohloh.wikier.org/dumps/rdfohloh-20080622.nt.gz">rdfohloh-20080622.nt.gz</a>
+      </dt>
+      <dd>
+        A dump generated at June 22th of 2008 with 13,961 instances of <tt>doap:Project</tt>
+        and 138,228 instances of <tt>sioc:User</tt> in N-Triples format.
+      <dd>
+    </dl>
+
+    <h3 id="libs">Libraries used</h3>
     <p>
       The project is written in <span property="doap:programming-language">PHP</span>, and it 
       uses some third part free software libraries:
