@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:sc="http://sw.deri.org/2007/07/sitemapextension/scschema.xsd"
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:sc="http://sw.deri.org/2007/07/sitemapextension/scschema.xsd"
 >
   <sc:dataset>
     <sc:datasetLabel>RDFohloh dataset</sc:datasetLabel>
     <sc:datasetURI>http://rdfohloh.wikier.org/about#rdfohloh</sc:datasetURI>
     <sc:sampleURI>http://rdfohloh.wikier.org/project/13509</sc:sampleURI>
     <sc:sampleURI>http://rdfohloh.wikier.org/user/17685</sc:sampleURI>
-    <sc:dataDumpLocation>http://rdfohloh.wikier.org/dumps/20080630.rdf.gz</sc:dataDumpLocation>
+    <sc:dataDumpLocation>http://rdfohloh.wikier.org/dumps/rdfohloh-20080622.nt.gz</sc:dataDumpLocation>
     <changefreq>yearly</changefreq>
   </sc:dataset>
 </urlset>
