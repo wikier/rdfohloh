@@ -15,8 +15,8 @@
 
     <p>
       This project is free software, licensed under <span property="doap:license">GPLv3</span>,
-      and it can be downloaded
-      <a href="http://code.google.com/p/rdfohloh/downloads" rel="doap:download-page">from Google Code</a>. 
+      and <a href="http://code.google.com/p/rdfohloh/downloads" rel="doap:download-page">it can 
+      be downloaded</a> from <a href="http://rdfohloh.googlecode.com/">Google Code</a>. 
       It has been developed by 
       <span rel="doap:developer" href="http://www.wikier.org/foaf#wikier"><a rel="foaf:homepage" href="http://www.wikier.org/" property="foaf:name">Sergio Fernández</a></span> 
       in his free time, and without any particular relation with funding of another project. 
