@@ -108,7 +108,7 @@
       <dd>
         A dump generated at June 22th of 2008 with 13,961 instances of <tt>doap:Project</tt>
         and 138,228 instances of <tt>sioc:User</tt>.
-      <dd>
+      </dd>
     </dl>
 
     <h3 id="libs">Libraries used</h3>
