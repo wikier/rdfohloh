@@ -28,8 +28,8 @@
     </form>
 
     <p>
-      If you need more information <a href="{$ABOUT}about">about</a> this service, you can
-      also read <a href="http://www.wikier.org/blog/rdfohloh">this post</a>.
+      If you need more information <a href="{$ABOUT}about">about</a> this service, or 
+      you can also read <a href="http://www.wikier.org/blog/rdfohloh">this post</a>.
     </p>
 
 {include file='footer.tpl'}
