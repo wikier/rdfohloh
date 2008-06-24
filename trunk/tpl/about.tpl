@@ -85,6 +85,7 @@
       </dd>
     </dl>
 
+<!--
     <h3 id="dumps">Dumps</h3>
 
     <p>
@@ -110,6 +111,8 @@
         and 138,228 instances of <tt>sioc:User</tt>.
       </dd>
     </dl>
+
+-->
 
     <h3 id="libs">Libraries used</h3>
     <p>
