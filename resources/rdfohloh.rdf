@@ -11,7 +11,7 @@
   <rdf:Description rdf:about="">
     <rdfs:label>RDFohloh schema</rdfs:label>
     <rdfs:comment>Some properties to represent Ohloh in RDF</rdfs:comment>
-    <dct:creator rdf:resource="http://www.wikier.orf/foaf#wikier" />
+    <dct:creator rdf:resource="http://www.wikier.org/foaf#wikier" />
   </rdf:Description>
 
   <owl:ObjectProperty rdf:about="#ohloh-page">
