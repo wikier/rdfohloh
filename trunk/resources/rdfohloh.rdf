@@ -5,13 +5,19 @@
    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
    xmlns:owl="http://www.w3.org/2002/07/owl#"
    xmlns:dct="http://purl.org/dc/terms/"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
    xml:base="http://rdfohloh.wikier.org/ns"
 >
 
-  <rdf:Description rdf:about="">
+  <foaf:Document rdf:about="http://rdfohloh.wikier.org/resources/doap.rdf">
+    <foaf:primaryTopic rdf:resource="http://rdfohloh.wikier.org/ns#" />
+    <dct:creator rdf:resource="http://www.wikier.org/foaf#wikier" />
+    <dct:created>2008-05-04</dct:created>
+  </foaf:Document>
+
+  <rdf:Description rdf:about="http://rdfohloh.wikier.org/ns#">
     <rdfs:label>RDFohloh schema</rdfs:label>
     <rdfs:comment>Some properties to represent Ohloh in RDF</rdfs:comment>
-    <dct:creator rdf:resource="http://www.wikier.org/foaf#wikier" />
   </rdf:Description>
 
   <owl:ObjectProperty rdf:about="#ohloh-page">
