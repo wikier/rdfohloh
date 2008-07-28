@@ -219,6 +219,7 @@ class User {
         $account = $ohloh->getSingleAccount($this->id);
         if ($account instanceof SimpleXMLElement) {
             $this->name = $account->name;
+            $this->info["email_sha1"] = $account->email_sha1;
             $this->info["kudo_rank"] = $account->kudo_score->kudo_rank;
             $this->info["gravatar"] = $account->avatar_url;
             $this->info["created"] = $account->created_at;
@@ -352,6 +353,7 @@ EXCERPT;
         $model->add(new Statement($user, new Resource($ns["rdf"], "type"), new Resource($ns["sioc"], "User")));
         $model->add(new Statement($user, new Resource($ns["sioc"], "id"), new Literal((string)$this->id)));
         $model->add(new Statement($user, new Resource($ns["sioc"], "name"), new Literal((string)$this->name)));
+        $model->add(new Statement($user, new Resource($ns["sioc"], "email_sha1"), new Literal((string)$this->info["email_sha1"])));
         $model->add(new Statement($user, new Resource($ns["rdfohloh"], "kudo-rank"), new Literal((string)$this->info["kudo_rank"])));
         $model->add(new Statement($user, new Resource($ns["foaf"], "depiction"), new Resource((string)$this->info["gravatar"])));
         $model->add(new Statement($user, new Resource($ns["dct"], "created"), new Literal((string)$this->info["created"])));
