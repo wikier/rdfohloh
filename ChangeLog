@@ -1,6 +1,7 @@
 
 YYYY-MM-DD  v0.3    - created a tool to make dumps
                     - added a semantic sitemap
+                    - email addresses exportation (hashed using sha1)
                     
 
 2008-05-25  v0.2    - Fixed RDF export (issues with namespaces, external URIs, etc.)
