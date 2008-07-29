@@ -37,7 +37,7 @@ nprojects = 13960
 
 #configuration
 sleep = 1
-fail = 30
+fail = 10
 timeout = 10
 attempts = 5
 
@@ -112,10 +112,10 @@ class ROD:
                     
                     while (data==None or not self.isRDF(data, t, i)):
                         a = a - 1
+                        self.logger.debug("Failed attempt #%i to get %s #%i" % (attempts-a, t, i))
                         if (a==0):
                             break;
                         time.sleep(fail)
-                        self.logger.debug("Failed attempt #%i to get %s #%i" % (attempts-a, t, i))
                         data = self.get(uri)
                     
                     if (a > 0):
