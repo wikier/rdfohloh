@@ -39,7 +39,7 @@ nprojects = 13960
 sleep = 1
 fail = 30
 timeout = 10
-attempts = 10
+attempts = 5
 
 class ROD:
 
