@@ -115,6 +115,7 @@ class ROD:
                         if (a==0):
                             break;
                         time.sleep(fail)
+                        self.logger.debug("Failed attempt #%i to get %s #%i" % (attempts-a, t, i))
                         data = self.get(uri)
                     
                     if (a > 0):
