@@ -28,6 +28,7 @@ import time
 import socket
 import logging
 from rdflib.Graph import ConjunctiveGraph
+from rdflib.sparql.bison import Parse
 from cStringIO import StringIO
 
 #default values (retrieved on June 21, 2008)
@@ -38,7 +39,7 @@ nprojects = 13960
 sleep = 1
 fail = 10
 timeout = 10
-attempts = 5
+attempts = 10
 
 class ROD:
 
@@ -108,10 +109,14 @@ class ROD:
                     a = attempts
                     uri = self.uri_template % (t, i)
                     data = self.get(uri)
-                    while (data==None and not self.isRDF(data, t, i) and a>0):
+                    
+                    while (data==None or not self.isRDF(data, t, i)):
                         a = a - 1
+                        if (a==0):
+                            break;
                         time.sleep(fail)
                         data = self.get(uri)
+                    
                     if (a > 0):
                         path = self.directory + "/" + t + "s/" + str(i) + ".rdf"
                         if (self.save(path, data)):
@@ -120,6 +125,7 @@ class ROD:
                             self.logger.error("Failed saving %s #%i" % (t, i))
                     else:
                         self.logger.error("It was impossible to get %s #%i" % (t, i))
+                    
                     time.sleep(sleep)
                     
                 self.logger.info("Finished crawling process for %ss" % t)
@@ -135,8 +141,24 @@ class ROD:
         g = ConjunctiveGraph()
         try:
             g.load(StringIO(data))
-            return True
+            query = ""
+            if (type == "user"):
+                query = """
+                            SELECT ?email 
+                            WHERE { 
+                              ?user <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rdfs.org/sioc/ns#User> . 
+                              ?user <http://rdfs.org/sioc/ns#email_sha1> ?email 
+                            }
+                        """
+            if (type == "project"):
+                query = """
+                        """
+            if (len(g.query(Parse(query)).serialize("python")[0])>0):
+                return True
+            else:
+                return False
         except Exception, e:
+            print str(e)
             self.logger.debug("Error parsing RDF of %s %i" %(type, id))
             return False
 
