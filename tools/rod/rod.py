@@ -37,7 +37,7 @@ nprojects = 13960
 
 #configuration
 sleep = 1
-fail = 100
+fail = 30
 timeout = 10
 attempts = 10
 
