@@ -100,6 +100,7 @@ function rdfohloh_get_form_destination($type, $value) {
 function http_get_preferred_content() {
     $accept = $_SERVER["HTTP_ACCEPT"];
     if (isset($accept)) {
+        $best = content_negotiation::mime_best_negotiation();
         if ($best == "application/rdf+xml")
             return RDF;
         else if ($best == "text/rdf+n3")
