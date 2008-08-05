@@ -31,9 +31,9 @@ from rdflib.Graph import ConjunctiveGraph
 from rdflib.sparql.bison import Parse
 from cStringIO import StringIO
 
-#default values (retrieved on June 21, 2008)
-nusers = 138228
-nprojects = 13960
+#default values (retrieved on July 31, 2008)
+nusers = 139375
+nprojects = 14685
 
 #configuration
 sleep = 1
