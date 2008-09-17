@@ -21,9 +21,9 @@
   </rdf:Description>
 
   <owl:ObjectProperty rdf:about="#ohloh-page">
-    <rdfs:label>ohloh page</rdfs:label>
-    <rdfs:comment>page in ohloh</rdfs:comment>
-    <rdf:subPropertyOf rdf:resource="http://xmlns.com/foaf/0.1/homepage" />
+    <rdfs:label>Ohloh page</rdfs:label>
+    <rdfs:comment>Page in Ohloh</rdfs:comment>
+    <owl:equivalentProperty rdf:resource="http://xmlns.com/foaf/0.1/accountProfilePage" />
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty" />
     <rdfs:domain>
       <owl:Class>    
