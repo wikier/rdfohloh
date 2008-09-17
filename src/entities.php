@@ -343,31 +343,46 @@ EXCERPT;
         $model->addNamespace("geo", $ns["geo"]);
         $model->addNamespace("rdfohloh", $ns["rdfohloh"]);
         
+        //instances
         $user = new Resource($uri);
+        $person = new Resource($uri . "#person");
         $doc = new Resource($uri . "/" . $format);
+
+        //foaf:Document
         $model->add(new Statement($doc, new Resource($ns["rdf"], "type"), new Resource($ns["foaf"], "Document")));
         $model->add(new Statement($doc, new Resource($ns["rdfs"], "label"), new Literal($this->name . "'s SIOC document serialized in " . (($format==N3) ? "n3" : "RDF/XML"))));
         $model->add(new Statement($doc, new Resource($ns["foaf"], "primaryTopic"), $user));
         $model->add(new Statement($doc, new Resource($ns["dct"], "isFormatOf"), $user));
+        $model->add(new Statement($doc, new Resource($ns["dct"], "created"), new Literal((string)$this->info["created"])));
+        $model->add(new Statement($doc, new Resource($ns["dct"], "updated"), new Literal((string)$this->info["updated"])));
         
+        //sioc:User
         $model->add(new Statement($user, new Resource($ns["rdf"], "type"), new Resource($ns["sioc"], "User")));
         $model->add(new Statement($user, new Resource($ns["sioc"], "id"), new Literal((string)$this->id)));
         $model->add(new Statement($user, new Resource($ns["sioc"], "name"), new Literal((string)$this->name)));
         $model->add(new Statement($user, new Resource($ns["sioc"], "email_sha1"), new Literal((string)$this->info["email_sha1"])));
-        $model->add(new Statement($user, new Resource($ns["rdfohloh"], "kudo-rank"), new Literal((string)$this->info["kudo_rank"])));
-        $model->add(new Statement($user, new Resource($ns["foaf"], "depiction"), new Resource((string)$this->info["gravatar"])));
-        $model->add(new Statement($user, new Resource($ns["dct"], "created"), new Literal((string)$this->info["created"])));
-        $model->add(new Statement($user, new Resource($ns["dct"], "updated"), new Literal((string)$this->info["updated"])));
-        if (strlen($this->info["homepage"])>0)
-            $model->add(new Statement($user, new Resource($ns["foaf"], "homepage"), new Resource((string)$this->info["homepage"])));
-        $model->add(new Statement($user, new Resource($ns["rdfohloh"], "ohloh-page"), new Resource((string)$this->info["ohloh_url"])));
         $model->add(new Statement($user, new Resource($ns["sioc"], "link"), new Resource($uri . "/html")));
+        $model->add(new Statement($user, new Resource($ns["rdfohloh"], "kudo-rank"), new Literal((string)$this->info["kudo_rank"])));
+        $model->add(new Statement($user, new Resource($ns["sioc"], "avatar"), new Resource((string)$this->info["gravatar"])));
+        $model->add(new Statement($user, new Resource($ns["rdfohloh"], "ohloh-page"), new Resource((string)$this->info["ohloh_url"])));
+        $model->add(new Statement($user, new Resource($ns["sioc"], "account_of"), $person));
+
+        //foaf:Person
+        $model->add(new Statement($person, new Resource($ns["rdf"], "type"), new Resource($ns["foaf"], "Person")));
+        $model->add(new Statement($person, new Resource($ns["foaf"], "holdsAccount"), $user));
+        $model->add(new Statement($person, new Resource($ns["foaf"], "name"), new Literal((string)$this->name)));
+        $model->add(new Statement($person, new Resource($ns["foaf"], "mbox_sha1sum"), new Literal((string)$this->info["email_sha1"])));
+        if (strlen($this->info["homepage"])>0)
+            $model->add(new Statement($person, new Resource($ns["foaf"], "homepage"), new Resource((string)$this->info["homepage"])));
         if (strlen((string)$this->info["geo"][0])>0 && strlen((string)$this->info["geo"][1])>0) {
             $geo_point = new BlankNode($model);
+            $model->add(new Statement($person, new Resource($ns["foaf"], "based_near"), $geo_point));
             $model->add(new Statement($geo_point, new Resource($ns["geo"], "lat"), new Literal((string)$this->info["geo"][0])));
             $model->add(new Statement($geo_point, new Resource($ns["geo"], "long"), new Literal((string)$this->info["geo"][1])));
-            $model->add(new Statement($user, new Resource($ns["foaf"], "based_near"), $geo_point));
         }
+
+        //FIXME: involved projects
+        
         return $model;
     }
 
