@@ -132,14 +132,18 @@ EXCERPT;
     function getModel($uri, $format) {
         include(RDFAPI_INCLUDE_DIR . "RdfAPI.php");
         $ns = array(
-                    "rdf" => "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                    "rdfs" => "http://www.w3.org/2000/01/rdf-schema#",
-                    "owl" => "http://www.w3.org/2002/07/owl#",
-                    "dct" => "http://purl.org/dc/terms/",
+                    "rdf" => "http://www.w3.org/1999/02/22-rdf-syntax-ns#" ,
+                    "rdfs" => "http://www.w3.org/2000/01/rdf-schema#" ,
+                    "owl" => "http://www.w3.org/2002/07/owl#" ,
+                    "dct" => "http://purl.org/dc/terms/" ,
                     "doap" => "http://usefulinc.com/ns/doap#" ,
                     "sioc" => "http://rdfs.org/sioc/ns#" ,
                     "foaf" => "http://xmlns.com/foaf/0.1/" ,
+                    "skos" => "http://www.w3.org/2004/02/skos/core#",
                     "rdfohloh" => RDFOHLOH_BASE_URI . "ns#"
+                   );
+        $langs = array(
+                    "Java" => "http://dbpedia.org/resource/Java_(programming_language)"
                    );
         
         $model = ModelFactory::getDefaultModel();
@@ -168,14 +172,18 @@ EXCERPT;
             $model->add(new Statement($project, new Resource($ns["doap"], "download-page"), new Resource((string)$this->info["download"])));
         if (strlen($this->info["url_name"])>0)
             $model->add(new Statement($project, new Resource($ns["rdfohloh"], "ohloh-page"), new Resource((string)"http://www.ohloh.net/projects/" .$this->info["url_name"])));
-        if (strlen($this->info["language"])>0)
-            $model->add(new Statement($project, new Resource($ns["doap"], "programming-language"), new Literal((string)$this->info["language"])));
-        foreach ($this->info["contributors"] as $contributor) {
-            $uri = RDFOHLOH_BASE_URI . "user/" . (string)$contributor[0];
-            $user = new Resource($uri);
-            $model->add(new Statement($project, new Resource($ns["doap"], "developer"), $user));
-            $model->add(new Statement($user, new Resource($ns["rdf"], "type"), new Resource($ns["sioc"], "User")));
-            $model->add(new Statement($user, new Resource($ns["rdfs"], "seeAlso"), new Resource($uri . "/rdf")));
+        if (strlen($this->info["language"])>0) {
+            $lang = (string)$this->info["language"];
+            $model->add(new Statement($project, new Resource($ns["doap"], "programming-language"), new Literal($lang)));
+            if (isset($langs[$lang])) 
+                $model->add(new Statement($project, new Resource($ns["skos"], "subject"), new Resource($langs[$lang])));
+        }
+        foreach ($this->info["contributors"] as $contributor) {;
+            $person = new Resource(RDFOHLOH_BASE_URI . "user/" . (string)$contributor[0] . "#person");
+            $model->add(new Statement($project, new Resource($ns["doap"], "developer"), $person));
+            $model->add(new Statement($person, new Resource($ns["rdf"], "type"), new Resource($ns["foaf"], "Person")));
+            $model->add(new Statement($person, new Resource($ns["foaf"], "name"), new Literal((string)$contributor[1])));
+            $model->add(new Statement($person, new Resource($ns["rdfs"], "seeAlso"), new Resource($uri . "/rdf")));
         }
         return $model;
     }
