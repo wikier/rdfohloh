@@ -178,12 +178,14 @@ EXCERPT;
             if (isset($langs[$lang])) 
                 $model->add(new Statement($project, new Resource($ns["skos"], "subject"), new Resource($langs[$lang])));
         }
-        foreach ($this->info["contributors"] as $contributor) {;
-            $person = new Resource(RDFOHLOH_BASE_URI . "user/" . (string)$contributor[0] . "#person");
-            $model->add(new Statement($project, new Resource($ns["doap"], "developer"), $person));
-            $model->add(new Statement($person, new Resource($ns["rdf"], "type"), new Resource($ns["foaf"], "Person")));
-            $model->add(new Statement($person, new Resource($ns["foaf"], "name"), new Literal((string)$contributor[1])));
-            $model->add(new Statement($person, new Resource($ns["rdfs"], "seeAlso"), new Resource($uri . "/rdf")));
+        if (sizeof($this->info["contributors"]) > 0) {
+            foreach ($this->info["contributors"] as $contributor) {;
+                $person = new Resource(RDFOHLOH_BASE_URI . "user/" . (string)$contributor[0] . "#person");
+                $model->add(new Statement($project, new Resource($ns["doap"], "developer"), $person));
+                $model->add(new Statement($person, new Resource($ns["rdf"], "type"), new Resource($ns["foaf"], "Person")));
+                $model->add(new Statement($person, new Resource($ns["foaf"], "name"), new Literal((string)$contributor[1])));
+                $model->add(new Statement($person, new Resource($ns["rdfs"], "seeAlso"), new Resource($uri . "/rdf")));
+            }
         }
         return $model;
     }
