@@ -143,7 +143,14 @@ EXCERPT;
                     "rdfohloh" => RDFOHLOH_BASE_URI . "ns#"
                    );
         $langs = array(
-                    "Java" => "http://dbpedia.org/resource/Java_(programming_language)"
+                    "PHP" => "Java_(programming_language)",
+                    "Python" => "Python_(programming_language)",
+                    "C" => "C_(programming_language)",
+                    "C++" => "C++_(programming_language)",
+                    "C/C++" => "Java_(programming_language)",
+                    "Java" => "Java_(programming_language)",
+                    "JavaScript" => "JavaScript",
+                    "C#" => "C_Sharp_(programming_language)"
                    );
         
         $model = ModelFactory::getDefaultModel();
@@ -151,6 +158,7 @@ EXCERPT;
         $model->addNamespace("doap", $ns["doap"]);
         $model->addNamespace("sioc", $ns["sioc"]);
         $model->addNamespace("foaf", $ns["foaf"]);
+        $model->addNamespace("skos", $ns["skos"]);
         $model->addNamespace("rdfohloh", $ns["rdfohloh"]);
         
         $project = new Resource($uri);
@@ -176,7 +184,7 @@ EXCERPT;
             $lang = (string)$this->info["language"];
             $model->add(new Statement($project, new Resource($ns["doap"], "programming-language"), new Literal($lang)));
             if (isset($langs[$lang])) 
-                $model->add(new Statement($project, new Resource($ns["skos"], "subject"), new Resource($langs[$lang])));
+                $model->add(new Statement($project, new Resource($ns["skos"], "subject"), new Resource("http://dbpedia.org/resource/".$langs[$lang])));
         }
         if (sizeof($this->info["contributors"]) > 0) {
             foreach ($this->info["contributors"] as $contributor) {;
