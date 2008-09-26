@@ -3,11 +3,6 @@
 
     <h2>About</h2>
 
-    <span rel="owl:sameAs" resource="http://rdfohloh.wikier.org/project/13690" />
-    <span rel="rdf:type" resource="http://vocab.dowhatimean.net/neologism/void-tmp#Dataset" />
-    <span rel="dct:subject" resource="http://dbpedia.org/resource/Ohloh" />
-    <span rel="void:containsLinks" resource="http://dbpedia.org/resource/DBpedia" />
-
     <p>
       <a rel="doap:homepage" href="http://rdfohloh.wikier.org/" property="doap:name">RDFohloh</a> 
       is a <a href="http://www.w3.org/RDF/">RDF</a> wrapper of <a href="http://rdfohloh.net/">Ohloh</a>.    
@@ -17,6 +12,10 @@
       <a href="http://www.w3.org/TR/rdfa-syntax/">XHTML+RDFa</a>, 
       <a href="http://www.w3.org/TR/rdf-syntax-grammar/">RDF/XML</a> and 
       <a href="http://www.w3.org/TeamSubmission/n3/">N3</a>.
+      <span rel="owl:sameAs" resource="http://rdfohloh.wikier.org/project/13690" />
+      <span rel="rdf:type" resource="http://vocab.dowhatimean.net/neologism/void-tmp#Dataset" />
+      <span rel="dct:subject" resource="http://dbpedia.org/resource/Ohloh" />
+      <span rel="void:containsLinks" resource="http://dbpedia.org/resource/DBpedia" />
     </p>
 
     <p>
