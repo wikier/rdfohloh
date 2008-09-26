@@ -143,11 +143,11 @@ EXCERPT;
                     "rdfohloh" => RDFOHLOH_BASE_URI . "ns#"
                    );
         $langs = array(
-                    "PHP" => "Java_(programming_language)",
+                    "PHP" => "PHP",
                     "Python" => "Python_(programming_language)",
                     "C" => "C_(programming_language)",
                     "C++" => "C++_(programming_language)",
-                    "C/C++" => "Java_(programming_language)",
+                    "C/C++" => "C++_(programming_language)",
                     "Java" => "Java_(programming_language)",
                     "JavaScript" => "JavaScript",
                     "C#" => "C_Sharp_(programming_language)"
