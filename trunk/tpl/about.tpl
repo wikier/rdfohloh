@@ -22,7 +22,7 @@
       It has been developed by 
       <span rel="doap:developer" href="http://www.wikier.org/foaf#wikier">
         <span rel="rdf:type" resource="http://xmlns.com/foaf/0.1/Person" />
-        <a rel="foaf:homepage" href="http://www.wikier.org/" property="foaf:name">Sergio Fernández</a>
+        <a rel="foaf:homepage" href="http://www.wikier.org/" property="foaf:name" xml:lang="es">Sergio Fernández</a>
         (<a rel="foaf:workplaceHomepage" href="http://www.fundacionctic.org/">CTIC Foudation</a>)
         <span property="foaf:mbox_sha1sum" content="d0fd987214f56f70b4c47fb96795f348691f93ab" />
       </span>. 
