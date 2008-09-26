@@ -147,6 +147,7 @@
     <p>
       If you need more information <a href="{$ABOUT}about">about</a> this service, you can
       also read <a href="http://www.wikier.org/blog/rdfohloh">this post</a>.
+      <span rel:owl:sameAs" resource="http://rdfohloh.wikier.org/project/13690" />
     </p>
 
 {include file='footer.tpl'}
