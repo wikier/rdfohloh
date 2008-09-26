@@ -21,6 +21,7 @@
       be downloaded</a> from <a href="http://rdfohloh.googlecode.com/">Google Code</a>. 
       It has been developed by 
       <span rel="doap:developer" href="http://www.wikier.org/foaf#wikier">
+        <span rel="rdf:type" resource="http://xmlns.com/foaf/0.1/Person" />
         <a rel="foaf:homepage" href="http://www.wikier.org/" property="foaf:name">Sergio Fernández</a>
         (<a rel="foaf:workplaceHomepage" href="http://www.fundacionctic.org/">CTIC Foudation</a>)
       </span>. 
