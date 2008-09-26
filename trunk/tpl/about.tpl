@@ -15,8 +15,8 @@
     </p>
 
     <p>
-      This project is free software, licensed under <a href="http://www.gnu.org/copyleft/gpl.html">GPLv3</a>
-      <span rel="doap:license" resource="http://usefulinc.com/doap/licenses/gpl"/>,
+      This project is free software, licensed under <a href="http://www.gnu.org/copyleft/gpl.html">GPLv3</a>,
+      <span rel="doap:license" resource="http://usefulinc.com/doap/licenses/gpl"/>
       and <a href="http://code.google.com/p/rdfohloh/downloads" rel="doap:download-page">it can 
       be downloaded</a> from <a href="http://rdfohloh.googlecode.com/">Google Code</a>. 
       It has been developed by 
@@ -122,8 +122,9 @@
 
     <h3 id="libs">Libraries used</h3>
     <p>
-      The project is written in <span property="doap:programming-language">PHP</span>, and it 
-      uses some third part free software libraries:
+      The project is written in <span property="doap:programming-language">PHP</span>,
+      <span rel="skos:subject" resource="http://dbpedia.org/resource/PHP" />
+      and it uses some third part free software libraries:
     </p>
     <ul>
       <li>
