@@ -4,12 +4,11 @@
     <p>
       <a rel="doap:homepage" href="http://rdfohloh.wikier.org/" property="doap:name">RDFohloh</a> 
       is a <a href="http://www.w3.org/RDF/">RDF</a> wrapper of <a href="http://rdfohloh.net/">Ohloh</a>.    
-      Using content negotiation, it provides <a href="http://linkeddata.org/">Linked Data</a>
-      from <a href="http://rdfohloh.net/">Ohloh</a>. Interlinked with <a href="http://dbpedia.org/">DBpedia</a>
-      concepts, the <a href="http://www.w3.org/RDF/">RDF</a> data can be founded serialized in 
-      <a href="http://www.w3.org/TR/rdfa-syntax/">XHTML+RDFa</a>, 
-      <a href="http://www.w3.org/TR/rdf-syntax-grammar/">RDF/XML</a> and 
-      <a href="http://www.w3.org/TeamSubmission/n3/">N3</a>.
+      It provides <a href="http://linkeddata.org/">Linked Data</a> from <a href="http://rdfohloh.net/">Ohloh</a>.
+      Using content negotiation, the <a href="http://www.w3.org/RDF/">RDF</a> data can be founded serialized in 
+      <a href="http://www.w3.org/TR/rdfa-syntax/">XHTML+RDFa</a>, <a href="http://www.w3.org/TR/rdf-syntax-grammar/">RDF/XML</a>
+      and <a href="http://www.w3.org/TeamSubmission/n3/">N3</a>, and interlinked with <a href="http://dbpedia.org/">DBpedia</a>
+      concepts.
     </p>
 
     <p>
