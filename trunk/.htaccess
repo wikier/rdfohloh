@@ -22,7 +22,13 @@ DirectoryIndex index.php
 <IfModule mod_rewrite.c>
   RewriteEngine on
   RewriteBase /
+
   RewriteRule ^ns resources/rdfohloh.rdf [R=303,L,QSA]
+
+  RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+  RewriteCond %{REQUEST_URI} ^/about
+  RewriteRule ^(.*)$ http://www.w3.org/2007/08/pyRdfa/extract?uri=http://rdfohloh.wikier.org/$1 [R=303,L,QSA]
+
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^(.*)$ index.php?uri=$1 [L,QSA]
