@@ -3,6 +3,11 @@
 
     <h2>About</h2>
 
+    <span rel="owl:sameAs" resource="http://rdfohloh.wikier.org/project/13690" />
+    <span rel="rdf:type" resource="http://vocab.dowhatimean.net/neologism/void-tmp#Dataset" />
+    <span rel="dct:subject" resource="http://dbpedia.org/resource/Ohloh" />
+    <span rel="void:containsLinks" resource="http://dbpedia.org/resource/DBpedia" />
+
     <p>
       <a rel="doap:homepage" href="http://rdfohloh.wikier.org/" property="doap:name">RDFohloh</a> 
       is a <a href="http://www.w3.org/RDF/">RDF</a> wrapper of <a href="http://rdfohloh.net/">Ohloh</a>.    
@@ -147,7 +152,6 @@
     <p>
       If you need more information <a href="{$ABOUT}about">about</a> this service, you can
       also read <a href="http://www.wikier.org/blog/rdfohloh">this post</a>.
-      <span rel="owl:sameAs" resource="http://rdfohloh.wikier.org/project/13690" />
     </p>
 
 {include file='footer.tpl'}
