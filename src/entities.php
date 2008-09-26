@@ -192,7 +192,7 @@ EXCERPT;
                 $model->add(new Statement($project, new Resource($ns["doap"], "developer"), $person));
                 $model->add(new Statement($person, new Resource($ns["rdf"], "type"), new Resource($ns["foaf"], "Person")));
                 $model->add(new Statement($person, new Resource($ns["foaf"], "name"), new Literal((string)$contributor[1])));
-                $model->add(new Statement($person, new Resource($ns["rdfs"], "seeAlso"), new Resource($uri . "/rdf")));
+                $model->add(new Statement($person, new Resource($ns["rdfs"], "seeAlso"), new Resource(RDFOHLOH_BASE_URI . "user/" . (string)$contributor[0] . "/rdf")));
             }
         }
         return $model;
