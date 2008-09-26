@@ -6,8 +6,9 @@
     <p>
       <a rel="doap:homepage" href="http://rdfohloh.wikier.org/" property="doap:name">RDFohloh</a> 
       is a <a href="http://www.w3.org/RDF/">RDF</a> wrapper of <a href="http://rdfohloh.net/">Ohloh</a>.    
-      Using content negotiation, it provides as <a href="http://linkeddata.org/">Linked Data</a> Ohloh's 
-      information in <a href="http://www.w3.org/RDF/">RDF</a>, serialized in 
+      Using content negotiation, it provides as <a href="http://linkeddata.org/">Linked Data</a>
+      in <a href="http://www.w3.org/RDF/">RDF</a> from <a href="http://rdfohloh.net/">Ohloh</a>,
+      serialized in 
       <a href="http://www.w3.org/TR/rdfa-syntax/">XHTML+RDFa</a>, 
       <a href="http://www.w3.org/TR/rdf-syntax-grammar/">RDF/XML</a> and 
       <a href="http://www.w3.org/TeamSubmission/n3/">N3</a>,
