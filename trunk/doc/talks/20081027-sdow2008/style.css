@@ -220,10 +220,10 @@ p.copyright { font-size: smaller;}
 
 a img { border-width: 0; border-style: none }
 
-a:visited { color: navy }
-a:link { color: navy }
-a:hover { color: red; text-decoration: underline }
-a:active { color: red; text-decoration: underline }
+a:visited { color: #F60 }
+a:link { color: #F60 }
+a:hover { color: navy; text-decoration: underline }
+a:active { color: #F60; text-decoration: underline }
 
 a {text-decoration: none}
 .navbar a:link {color: white}
@@ -585,8 +585,12 @@ iframe,
 	color: #000;
 }
 .show>a {
-	color: navy;
+	color: #F60;
 }
+.show>a:hover {
+    color: navy;
+}
+
 .show li {
 	background-position: 0 .5em;
 }
