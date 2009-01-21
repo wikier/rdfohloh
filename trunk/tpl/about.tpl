@@ -14,7 +14,7 @@
       <a href="http://www.w3.org/TR/rdfa-syntax/">XHTML+RDFa</a>, <a href="http://www.w3.org/TR/rdf-syntax-grammar/">RDF/XML</a>
       and <a href="http://www.w3.org/TeamSubmission/n3/">N3</a>, and interlinked with 
       <span rel="void:containsLinks">
-        <span about="http://rdfohloh.wikier.org/about#linkset" instanceof="void:Linkset">
+        <span about="http://rdfohloh.wikier.org/about#linkset" typeof="void:Linkset">
           <span rel="void:target">
             <a rel="foaf:homepage" href="http://dbpedia.org/">DBpedia</a>
           </span>
