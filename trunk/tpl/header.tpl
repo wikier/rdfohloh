@@ -8,7 +8,7 @@
       xmlns:doap="http://usefulinc.com/ns/doap#"
       xmlns:sioc="http://rdfs.org/sioc/ns#"
       xmlns:foaf="http://xmlns.com/foaf/0.1/"
-      xmlns:void="http://vocab.dowhatimean.net/neologism/void-tmp#"
+      xmlns:void="http://rdfs.org/ns/void#"
       xml:lang="en"
 >
 
