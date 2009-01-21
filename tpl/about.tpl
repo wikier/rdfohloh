@@ -18,9 +18,13 @@
           <span rel="void:target">
             <a rel="foaf:homepage" href="http://dbpedia.org/">DBpedia</a>
           </span>
+          concepts and
+          <span rel="void:target">
+            <a rel="foaf:homepage" href="http://doapspace.org/">DOAPspace</a>
+          </span>
+          projects
         </span>
-      </span>
-      concepts.
+      </span>.
     </p>
 
     <p>
