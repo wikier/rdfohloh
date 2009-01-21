@@ -186,9 +186,9 @@ EXCERPT;
             if (isset($langs[$lang])) 
                 $model->add(new Statement($project, new Resource($ns["skos"], "subject"), new Resource("http://dbpedia.org/resource/".$langs[$lang])));
         }
-        if ( strcmp("http://", substr($uri, 0, 7))===0 && strcmp(".sourceforge.net/", substr($uri, strlen($uri)-17, 17))===0) {
+        if ( strcmp("http://", substr($this->info["homepage"], 0, 7))===0 && strcmp(".sourceforge.net/", substr($this->info["homepage"], strlen($this->info["homepage"])-17, 17))===0) {
             //FIXME: improve this comparasion
-            $name = substr($uri, 7, strlen($uri)-24);
+            $name = substr($this->info["homepage"], 7, strlen($this->info["homepage"])-24);
             $doapspace = "http://doapspace.org/doap/sf/" . $name . "#project";
             $model->add(new Statement($project, new Resource($ns["owl"], "sameAs"), new Resource($doapspace)));
         }
