@@ -4,17 +4,23 @@
     <h2>About</h2>
 
     <p>
+      <span rel="owl:sameAs" resource="http://rdfohloh.wikier.org/project/13690" />
+      <span rel="rdf:type" resource="http://rdfs.org/ns/void#Dataset" />
+      <span rel="dct:subject" resource="http://dbpedia.org/resource/Ohloh" />
       <a rel="doap:homepage" href="http://rdfohloh.wikier.org/" property="doap:name">RDFohloh</a> 
       is a <a href="http://www.w3.org/RDF/">RDF</a> wrapper of <a href="http://rdfohloh.net/">Ohloh</a>.    
       It provides <a href="http://linkeddata.org/">Linked Data</a> from <a href="http://rdfohloh.net/">Ohloh</a>.
       Using content negotiation, the <a href="http://www.w3.org/RDF/">RDF</a> data can be founded serialized in 
       <a href="http://www.w3.org/TR/rdfa-syntax/">XHTML+RDFa</a>, <a href="http://www.w3.org/TR/rdf-syntax-grammar/">RDF/XML</a>
-      and <a href="http://www.w3.org/TeamSubmission/n3/">N3</a>, and interlinked with <a href="http://dbpedia.org/">DBpedia</a>
+      and <a href="http://www.w3.org/TeamSubmission/n3/">N3</a>, and interlinked with 
+      <span rel"void:containsLinks">
+        <span about="http://rdfohloh.wikier.org/about#linkset" instanceof="void:Linkset">
+          <span rel="void:target">
+            <a rel="foaf:homepage" href="http://dbpedia.org/">DBpedia</a>
+          </span>
+        </span>
+      </span>
       concepts.
-      <span rel="owl:sameAs" resource="http://rdfohloh.wikier.org/project/13690" />
-      <span rel="rdf:type" resource="http://vocab.dowhatimean.net/neologism/void-tmp#Dataset" />
-      <span rel="dct:subject" resource="http://dbpedia.org/resource/Ohloh" />
-      <span rel="void:containsLinks" resource="http://dbpedia.org/resource/DBpedia" />
     </p>
 
     <p>
