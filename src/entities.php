@@ -186,6 +186,12 @@ EXCERPT;
             if (isset($langs[$lang])) 
                 $model->add(new Statement($project, new Resource($ns["skos"], "subject"), new Resource("http://dbpedia.org/resource/".$langs[$lang])));
         }
+        if ( strcmp("http://", substr($uri, 0, 7))===0 && strcmp(".sourceforge.net/", substr($uri, strlen($uri)-17, 17))===0) {
+            //FIXME: improve this comparasion
+            $name = substr($uri, 7, strlen($uri)-24);
+            $doapspace = "http://doapspace.org/doap/sf/" . $name . "#project";
+            $model->add(new Statement($project, new Resource($ns["owl"], "sameAs"), new Resource($doapspace)));
+        }
         if (sizeof($this->info["contributors"]) > 0) {
             foreach ($this->info["contributors"] as $contributor) {;
                 $person = new Resource(RDFOHLOH_BASE_URI . "user/" . (string)$contributor[0] . "#person");
@@ -431,3 +437,4 @@ EXCERPT;
 }
 
 ?>
+
