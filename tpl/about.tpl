@@ -15,8 +15,8 @@
       and <a href="http://www.w3.org/TeamSubmission/n3/">N3</a>, and interlinked with 
       <span rel="void:subset">
         <span about="http://rdfohloh.wikier.org/about#rdfohloh2dbpedia" typeof="void:Linkset">
-          <span property="void:linkPredicate" resource="skos:subject" />
-          <span property="void:target" resource="http://rdfohloh.wikier.org/about#rdfohloh" />
+          <span rel="void:linkPredicate" resource="skos:subject" />
+          <span rel="void:target" resource="http://rdfohloh.wikier.org/about#rdfohloh" />
           <span rel="void:target">
             <a rel="foaf:homepage" href="http://dbpedia.org/">DBpedia</a>
           </span>
@@ -24,8 +24,8 @@
       concepts and
       <span rel="void:subset">
         <span about="http://rdfohloh.wikier.org/about#rdfohloh2doapspace" typeof="void:Linkset">
-          <span property="void:linkPredicate" resource="owl:sameAs" />
-          <span property="void:target" resource="http://rdfohloh.wikier.org/about#rdfohloh" />
+          <span rel="void:linkPredicate" resource="owl:sameAs" />
+          <span rel="void:target" resource="http://rdfohloh.wikier.org/about#rdfohloh" />
           <span rel="void:target">
             <a rel="foaf:homepage" href="http://doapspace.org/">DOAPspace</a>
           </span>
