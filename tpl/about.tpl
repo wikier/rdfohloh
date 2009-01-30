@@ -20,6 +20,7 @@
           <span rel="void:target">
             <a rel="foaf:homepage" href="http://dbpedia.org/">DBpedia</a>
           </span>
+        </span>
       </span>
       concepts and
       <span rel="void:subset">
