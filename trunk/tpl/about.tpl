@@ -13,12 +13,19 @@
       Using content negotiation, the <a href="http://www.w3.org/RDF/">RDF</a> data can be founded serialized in 
       <a href="http://www.w3.org/TR/rdfa-syntax/">XHTML+RDFa</a>, <a href="http://www.w3.org/TR/rdf-syntax-grammar/">RDF/XML</a>
       and <a href="http://www.w3.org/TeamSubmission/n3/">N3</a>, and interlinked with 
-      <span rel="void:containsLinks">
-        <span about="http://rdfohloh.wikier.org/about#linkset" typeof="void:Linkset">
+      <span rel="void:subset">
+        <span about="http://rdfohloh.wikier.org/about#rdfohloh2dbpedia" typeof="void:Linkset">
+          <span rel="void:linkPredicate" resource="skos:subject" />
+          <span rel="void:target" resource="http://rdfohloh.wikier.org/about#rdfohloh" />
           <span rel="void:target">
             <a rel="foaf:homepage" href="http://dbpedia.org/">DBpedia</a>
           </span>
-          concepts and
+      </span>
+      concepts and
+      <span rel="void:subset">
+        <span about="http://rdfohloh.wikier.org/about#rdfohloh2doapspace" typeof="void:Linkset">
+          <span rel="void:linkPredicate" resource="owl:sameAs" />
+          <span rel="void:target" resource="http://rdfohloh.wikier.org/about#rdfohloh" />
           <span rel="void:target">
             <a rel="foaf:homepage" href="http://doapspace.org/">DOAPspace</a>
           </span>
