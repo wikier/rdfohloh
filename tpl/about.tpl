@@ -18,7 +18,9 @@
           <span rel="void:linkPredicate" resource="http://www.w3.org/2004/02/skos/core#subject" />
           <span rel="void:target" resource="http://rdfohloh.wikier.org/about#rdfohloh" />
           <span rel="void:target">
-            <a typeof="http://rdfs.org/ns/void#Dataset" rel="foaf:homepage" href="http://dbpedia.org/">DBpedia</a>
+            <span typeof="http://rdfs.org/ns/void#Dataset">
+              <a rel="foaf:homepage" href="http://dbpedia.org/">DBpedia</a>
+            </span>
           </span>
         </span>
       </span>
@@ -28,7 +30,9 @@
           <span rel="void:linkPredicate" resource="http://www.w3.org/2002/07/owl#sameAs" />
           <span rel="void:target" resource="http://rdfohloh.wikier.org/about#rdfohloh" />
           <span rel="void:target">
-            <a typeof="http://rdfs.org/ns/void#Dataset" rel="foaf:homepage" href="http://doapspace.org/">DOAPspace</a>
+            <span typeof="http://rdfs.org/ns/void#Dataset">
+              <a rel="foaf:homepage" href="http://doapspace.org/">DOAPspace</a>
+            </span>
           </span>
           projects
         </span>
