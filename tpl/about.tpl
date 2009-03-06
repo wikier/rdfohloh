@@ -17,7 +17,7 @@
         <span about="http://rdfohloh.wikier.org/about#rdfohloh2dbpedia" typeof="void:Linkset">
           <span rel="void:linkPredicate" resource="http://www.w3.org/2004/02/skos/core#subject" />
           <span rel="void:target" resource="http://rdfohloh.wikier.org/about#rdfohloh" />
-          <span rel="void:target"
+          <span rel="void:target">
             <span typeof="http://rdfs.org/ns/void#Dataset" about="http://dbpedia.org/#Dataset">
               <a rel="foaf:homepage" href="http://dbpedia.org/">DBpedia</a>
             </span>
