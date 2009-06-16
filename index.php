@@ -19,8 +19,8 @@
  *
  */
 
-define("RDFOHLOH_BASE_URI", "http://localhost/rdfohloh/");
-define("RDFOHLOH_BASE_DIR", "//home/sergio/projects/rdfohloh/");
+define("RDFOHLOH_BASE_URI", "http://rdfohloh.wikier.org/");
+define("RDFOHLOH_BASE_DIR", "//home/wikier/rdfohloh.wikier.org/");
 define("RDFOHLOH_SRC", RDFOHLOH_BASE_DIR . "src/");
 define("RDFOHLOH_LIBS", RDFOHLOH_BASE_DIR . "lib/");
 define("RDFOHLOH_TPLS", RDFOHLOH_BASE_DIR . "tpl/");
