@@ -92,7 +92,7 @@ div#content form {
 }
 
 .span_6 {
-  width: 60%; 
+  margin-right: 10%; 
 }
 
 .mezzo {
@@ -166,7 +166,7 @@ div#footer p#copyright {
   text-align: right;
   font-size: 0.8em;
   margin-right: 10%;
-  margin-top: 0.2em;
+  margin-top: 2em;
 }
 
 
