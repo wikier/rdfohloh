@@ -121,7 +121,7 @@ div#footer {
   color: #fff;
   padding-top: 1.5em;
   margin: 4em 0 0 0; 
-  height: 150px;
+  height: 180px;
   font-size: 0.8em;
 }
 
@@ -136,8 +136,8 @@ div#footer .mezzo {
 }
 
 div#footer a, #footer h6, #footer h5, #footer h4 {
-    color: #fff;
-    border: 0; 
+  color: #fff;
+  border: 0; 
 }
 
 div#footer ul, div#footer li {
@@ -154,7 +154,7 @@ div#footer a:hover {
 
 div#footer ul a.listing_block, #footer li a.listing_block {
   display: block;
-  margin-bottom: 1.5em; 
+  margin-bottom: 1em; 
 }
 
 div#footer ul a.listing_block .author, #footer li a.listing_block .author {
