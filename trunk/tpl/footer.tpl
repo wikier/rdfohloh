@@ -33,7 +33,7 @@
       </div>
 
       <p id="copyright">
-        2008-2009 &copy; <a href="http://www.wikier.org/">Sergio Fernández</a><br/>
+        2008-2009 &copy; <a href="http://www.wikier.org/">Sergio Fernández</a> (<a href="http://www.fundacionctic.org/">CTIC Foundation</a>)<br/>
         <a href="http://www.fundacionctic.org/"><img src="/resources/images/ctic-white-grey.jpg" width="200" height="60" alt="CTIC Foundation" /></a>
       </p>
 
