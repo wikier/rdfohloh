@@ -1,18 +1,6 @@
 
     </div>
 
-    <div id="adsense">
-      <script type="text/javascript"><!--
-        google_ad_client = "pub-8526284355576873";
-        /* 728x90, creado 25/05/08 */
-        google_ad_slot = "1433742017";
-        google_ad_width = 728;
-        google_ad_height = 90;
-        //-->
-      </script>
-      <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-    </div>
-
     <div id="footer">
 
       <div class='row'>
@@ -45,7 +33,8 @@
       </div>
 
       <p id="copyright">
-        2008 &copy; <a href="http://www.wikier.org/">Sergio Fernández</a>
+        2008-2009 &copy; <a href="http://www.wikier.org/">Sergio Fernández</a><br/>
+        <a href="http://www.fundacionctic.org/"><img src="/resources/images/ctic-white-grey.jpg" width="200" height="60" alt="CTIC Foundation" /></a>
       </p>
 
     </div>
