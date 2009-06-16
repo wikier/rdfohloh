@@ -3,6 +3,12 @@
 
     <h2>About</h2>
 
+    <div class="ctic">
+      <a href="http://www.fundacionctic.org/">
+        <img src="/resources/images/ctic.png" width="181" height="49" alt="CTIC Foundation" />
+      </a>
+    </div>
+
     <p>
       <span rel="owl:sameAs" resource="http://rdfohloh.wikier.org/project/13690" />
       <span rel="rdf:type" resource="http://rdfs.org/ns/void#Dataset" />
