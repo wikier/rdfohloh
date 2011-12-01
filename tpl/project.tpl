@@ -12,7 +12,7 @@
         <dt>Homepage:</dt>
         <dd><a href="{$homepage}" rel="doap:homepage">{$homepage}</a></dd>
 
-        {if !isset($download)}
+        {if isset($download)}
         <dt>Download:</dt>
         <dd><a href="{$download}" rel="doap:download-page">{$download}</a></dd>
         {/if}
@@ -36,7 +36,7 @@
 
       </dl>
 
-      {if !isset($sameAs)}
+      {if isset($sameAs)}
       <p><span href="{$sameAs}" rel="owl:sameAs"/></p>
       {/if}
 
