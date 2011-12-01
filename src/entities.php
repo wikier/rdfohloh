@@ -114,7 +114,9 @@ EXCERPT;
             if (strlen($this->info["download"])>0)
                 $tpl->assign("download", $this->info["download"]);
             if (strlen($this->info["url_name"])>0)
-                $tpl->assign("ohloh_url", "http://www.ohloh.net/projects/" . $this->info["url_name"]);
+                $tpl->assign("ohloh_url", "http://www.ohloh.net/p/" . $this->info["url_name"]);
+            else 
+                $tpl->assign("ohloh_url", "http://www.ohloh.net/p/" . $this->id);
             $tpl->assign("ncontributors", $this->info["ncontributors"]);
             $tpl->assign("language_url", $this->info["language_url"]);
             if (strlen($this->info["language"])>0)
