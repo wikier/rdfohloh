@@ -52,20 +52,28 @@ function rdfohloh_get_entitiy_destination() {
 
         case 2: 
                 $type = $splitted[0];
-                $resource = $splitted[1];
-                $format = http_get_preferred_content();
-                return array(303, RDFOHLOH_BASE_URI . $type . "/" . $resource . "/" . $format);
+                $dest = $splitted[1];
+                if (contains($dest, ".")) {
+                    $splitted2 = split("\.", $dest);
+                    $resource = $splitted2[0];
+                    $format = $splitted2[1];
+                    if (in_array($type, $types) && in_array($format, $formats)) {
+                        return array(200, $type . "/" . $resource . "." . $format);
+                    } else {
+                        return array(404, HOME);
+                    }    
+                } else {
+                    $format = http_get_preferred_content();
+                    return array(303, RDFOHLOH_BASE_URI . $type . "/" . $dest . "." . $format);
+                }
                 break;
 
         case 3: 
+                //backward compatibility
                 $type = $splitted[0];
                 $resource = $splitted[1];
                 $format = $splitted[2];
-                if (in_array($type, $types) && in_array($format, $formats)) {
-                    return array(200, $type . "/" . $resource . "/" . $format);
-                } else {
-                    return array(404, HOME);
-                }
+                return array(301, RDFOHLOH_BASE_URI . $type . "/" . $resource . "." . $format);
                 break;
 
         default:
@@ -115,10 +123,20 @@ function http_get_preferred_content() {
 function http_set_headers($code, $dest) {
     header("HTTP/1.1 " . $code);
     if ($code >= 300 && $code <400 && isset($dest)) {
+        header("Vary: Accept");
         header("Location: " . $dest);
         return true;
     }
     return false;
+}
+
+function contains($string, $substring) {
+    $pos = strpos($string, $substring);
+    if($pos === false) {
+        return false;
+    } else {
+        return true;
+    }
 }
 
 ?>
