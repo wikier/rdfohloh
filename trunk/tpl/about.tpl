@@ -102,22 +102,22 @@
         <a href="http://www.w3.org/TR/rdfa-syntax/">XHTML+RDFa</a>
       </dt>
       <dd>
-        http://rdfohloh.wikier.org/ENTITY/ID/html
-        (<a href="http://rdfohloh.wikier.org/project/swaml/html">example</a>)
+        http://rdfohloh.wikier.org/ENTITY/ID.html
+        (<a href="http://rdfohloh.wikier.org/project/swaml.html">example</a>)
       </dd>
       <dt>
         <a href="http://www.w3.org/TR/rdf-syntax-grammar/">RDF/XML</a>
       </dt>
       <dd>
-        http://rdfohloh.wikier.org/ENTITY/ID/rdf
-        (<a href="http://rdfohloh.wikier.org/project/swaml/rdf">example</a>)
+        http://rdfohloh.wikier.org/ENTITY/ID.rdf
+        (<a href="http://rdfohloh.wikier.org/project/swaml.rdf">example</a>)
       </dd>
       <dt>
         <a href="http://www.w3.org/TeamSubmission/n3/">RDF in N3</a>
       </dt>
       <dd>
-        http://rdfohloh.wikier.org/ENTITY/ID/n3
-        (<a href="http://rdfohloh.wikier.org/project/swaml/n3">example</a>)
+        http://rdfohloh.wikier.org/ENTITY/ID.n3
+        (<a href="http://rdfohloh.wikier.org/project/swaml.n3">example</a>)
       </dd>
     </dl>
 
