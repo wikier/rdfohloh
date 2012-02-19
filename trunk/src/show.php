@@ -21,17 +21,25 @@
 
 include(RDFOHLOH_SRC . "entities.php");
 
+function rdfohloh_show_debug($path) {
+    echo $path;
+}
+
 function rdfohloh_show($path) {
     //FIXME
     $splitted = split("/", $path);
+    $type = $splitted[0];
     switch (count($splitted)) {
 
         case 1:   
-                show_static_section($splitted[0]);
+                show_static_section($type);
                 break;
 
-        case 3:
-                show_entity($splitted[0], $splitted[1], $splitted[2]);
+        case 2:
+                $splitted2 = split("\.", $splitted[1]);
+                $resource = $splitted2[0];
+                $format = $splitted2[1];
+                show_entity($type, $resource, $format);
                 break;
 
         default:
