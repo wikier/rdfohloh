@@ -88,8 +88,8 @@ class Project {
 
         $autodiscovery = <<<EXCERPT
 
-    <link rel="meta" type="application/rdf+xml" title="DOAP" href="$uri/rdf" />
-    <link rel="meta" type="text/rdf+n3" title="DOAP" href="$uri/n3" />
+    <link rel="meta" type="application/rdf+xml" title="DOAP" href="$uri.rdf" />
+    <link rel="meta" type="text/rdf+n3" title="DOAP" href="$uri.n3" />
 
 EXCERPT;
 
@@ -264,8 +264,8 @@ class User {
 
         $autodiscovery = <<<EXCERPT
 
-    <link rel="meta" type="application/rdf+xml" title="RDF/XML" href="$uri.rdf" />
-    <link rel="meta" type="text/rdf+n3" title="N3" href="$uri.n3" />
+    <link rel="meta" type="application/rdf+xml" title="SIOC" href="$uri.rdf" />
+    <link rel="meta" type="text/rdf+n3" title="SIOC" href="$uri.n3" />
 
 EXCERPT;
 
