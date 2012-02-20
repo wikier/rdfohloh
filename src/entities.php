@@ -35,6 +35,7 @@ class StaticSection {
         $tpl =& new RDFohloh_Static_Section_Smarty;
         $tpl->assign("name", $this->name);
         $tpl->assign("ROOT", RDFOHLOH_BASE_URI);
+        $tpl->assign("YEAR", date("Y");
         $tpl->assign("bodyEvents", ' typeof="doap:Project" about="' . RDFOHLOH_BASE_URI . 'about#rdfohloh"');
         $tpl->display(RDFOHLOH_TPLS . $this->name . ".tpl");
     }
@@ -100,6 +101,7 @@ EXCERPT;
     function getHTML() {
         $tpl =& new RDFohloh_Project_Smarty;
         $tpl->assign("ROOT", RDFOHLOH_BASE_URI);
+        $tpl->assign("YEAR", date("Y");
         if ($this->exists) { 
             $uri = RDFOHLOH_BASE_URI . "project/" . strtolower($this->id);
             $tpl->assign("TITLE", " - ".$this->name);
@@ -319,6 +321,7 @@ EXCERPT;
     function getHTML() {
         $tpl =& new RDFohloh_Project_Smarty;
         $tpl->assign("ROOT", RDFOHLOH_BASE_URI);
+        $tpl->assign("YEAR", date("Y");
         if ($this->exists) {
             $uri = RDFOHLOH_BASE_URI . "user/" . strtolower($this->id);
             $tpl->assign("id", $this->id);
