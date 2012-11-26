@@ -77,7 +77,7 @@ class ROD:
                 self.end_projects = nprojects
         
         self.directory = directory
-        self.uri_template = "http://rdfohloh.wikier.org/%s/%i/rdf"
+        self.uri_template = "http://rdfohloh.wikier.org/%s/%i.rdf"
         self.prepare()
         self.logger.info("Starting ROD")
         self.retrieve()

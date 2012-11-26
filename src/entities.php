@@ -166,7 +166,7 @@ EXCERPT;
         $model->addNamespace("rdfohloh", $ns["rdfohloh"]);
         
         $project = new Resource($uri);
-        $doc = new Resource($uri . "/" . $format);
+        $doc = new Resource($uri . "." . $format);
         $model->add(new Statement($doc, new Resource($ns["rdf"], "type"), new Resource($ns["foaf"], "Document")));
         $model->add(new Statement($doc, new Resource($ns["rdfs"], "label"), new Literal($this->name . "'s DOAP document serialized in " . (($format==N3) ? "n3" : "RDF/XML"))));
         $model->add(new Statement($doc, new Resource($ns["foaf"], "primaryTopic"), $project));
@@ -202,7 +202,7 @@ EXCERPT;
                 $model->add(new Statement($project, new Resource($ns["doap"], "developer"), $person));
                 $model->add(new Statement($person, new Resource($ns["rdf"], "type"), new Resource($ns["foaf"], "Person")));
                 $model->add(new Statement($person, new Resource($ns["foaf"], "name"), new Literal((string)$contributor[1])));
-                $model->add(new Statement($person, new Resource($ns["rdfs"], "seeAlso"), new Resource(RDFOHLOH_BASE_URI . "user/" . (string)$contributor[0] . "/rdf")));
+                $model->add(new Statement($person, new Resource($ns["rdfs"], "seeAlso"), new Resource(RDFOHLOH_BASE_URI . "user/" . (string)$contributor[0] . ".rdf")));
             }
         }
         return $model;
