@@ -3,12 +3,6 @@
 
     <h2>About</h2>
 
-    <div class="ctic">
-      <a href="http://www.fundacionctic.org/">
-        <img src="/resources/images/ctic.png" width="181" height="49" alt="CTIC Foundation" />
-      </a>
-    </div>
-
     <p>
       <span rel="owl:sameAs" resource="http://rdfohloh.wikier.org/project/13690" />
       <span rel="rdf:type" resource="http://rdfs.org/ns/void#Dataset" />
@@ -53,7 +47,6 @@
       <span rel="doap:developer" href="http://www.wikier.org/foaf#wikier">
         <span rel="rdf:type" resource="http://xmlns.com/foaf/0.1/Person" />
         <a rel="foaf:homepage" href="http://www.wikier.org/" property="foaf:name" xml:lang="es">Sergio Fernández</a>
-        (<a rel="foaf:workplaceHomepage" href="http://www.fundacionctic.org/">CTIC Foudation</a>)
         <span property="foaf:mbox_sha1sum" content="d0fd987214f56f70b4c47fb96795f348691f93ab" />
       </span>. 
       The service is provided without any warranty and subject to the 

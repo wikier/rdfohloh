@@ -1,12 +1,6 @@
 
 {include file='header.tpl'} 
 
-    <div class="ctic">
-      <a href="http://www.fundacionctic.org/">
-        <img src="/resources/images/ctic.png" width="181" height="49" alt="CTIC Foundation" />
-      </a>
-    </div>
-
     <p>
       <a rel="doap:homepage" href="http://rdfohloh.wikier.org/" property="doap:name">RDFohloh</a> 
       is a <a href="http://www.w3.org/RDF/">RDF</a>izer of <a href="http://www.ohloh.net/">Ohloh</a>.    
