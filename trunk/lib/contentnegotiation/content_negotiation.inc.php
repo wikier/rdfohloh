@@ -1,6 +1,6 @@
 <?php
 
-	require_once '../conNeg.inc.php';
+	require_once 'conNeg.inc.php';
 
 /**	@brief	Wrapper for backwards compatibility with v1.x api.
  *
