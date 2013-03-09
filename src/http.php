@@ -109,9 +109,9 @@ function http_get_preferred_content() {
     $accept = $_SERVER["HTTP_ACCEPT"];
     if (isset($accept)) {
         $best = content_negotiation::mime_best_negotiation();
-        if ($best == "application/rdf+xml")
+        if ($best == "application/rdf+xml" || $best == "application/xml")
             return RDF;
-        else if ($best == "text/rdf+n3")
+        else if ($best == "text/rdf+n3" || $best == "text/n3" || $best == "text/turtle")
             return N3;
         else
             return HTML;
