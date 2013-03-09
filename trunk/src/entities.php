@@ -90,7 +90,7 @@ class Project {
         $autodiscovery = <<<EXCERPT
 
     <link rel="meta" type="application/rdf+xml" title="DOAP" href="$uri.rdf" />
-    <link rel="meta" type="text/rdf+n3" title="DOAP" href="$uri.n3" />
+    <link rel="meta" type="text/n3" title="DOAP" href="$uri.n3" />
 
 EXCERPT;
 
@@ -228,7 +228,7 @@ EXCERPT;
         $ser = new N3Serializer();
         $n3 =& $ser->serialize($model);
         $model->close();
-        header("Content-Type: text/rdf+n3; charset=utf-8");
+        header("Content-Type: text/n3; charset=utf-8");
         echo $n3;  
     }
 
@@ -267,7 +267,7 @@ class User {
         $autodiscovery = <<<EXCERPT
 
     <link rel="meta" type="application/rdf+xml" title="SIOC" href="$uri.rdf" />
-    <link rel="meta" type="text/rdf+n3" title="SIOC" href="$uri.n3" />
+    <link rel="meta" type="text/n3" title="SIOC" href="$uri.n3" />
 
 EXCERPT;
 
@@ -435,7 +435,7 @@ EXCERPT;
         $ser = new N3Serializer();
         $n3 =& $ser->serialize($model);
         $model->close();
-        header("Content-Type: text/rdf+n3; charset=utf-8");
+        header("Content-Type: text/n3; charset=utf-8");
         echo $n3;  
     }
 
