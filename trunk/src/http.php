@@ -108,7 +108,8 @@ function rdfohloh_get_form_destination($type, $value) {
 function http_get_preferred_content() {
     $accept = $_SERVER["HTTP_ACCEPT"];
     if (isset($accept)) {
-        $best = content_negotiation::mime_best_negotiation();
+        $appTypes = "application/rdf+xml;q=1.0,text/n3;q=0.8,text/html:q=0.1";
+        $best = content_negotiation::mime_best_negotiation($appTypes);
         if ($best == "application/rdf+xml" || $best == "application/xml")
             return RDF;
         else if ($best == "text/rdf+n3" || $best == "text/n3" || $best == "text/turtle")
