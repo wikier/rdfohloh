@@ -21,7 +21,7 @@ DirectoryIndex index.php
 
 <IfModule mod_rewrite.c>
   RewriteEngine on
-  RewriteBase /rdfohloh/
+  RewriteBase /
 
   RewriteRule ^ns resources/rdfohloh.rdf [R=303,L,QSA]
 
