@@ -19,13 +19,13 @@
  *
  */
 
-define("RDFOHLOH_BASE_URI", "http://localhost/rdfohloh/");
-define("RDFOHLOH_BASE_DIR", "/home/sergio/projects/rdfohloh/");
+define("RDFOHLOH_BASE_URI", "http://rdfohloh.wikier.org/");
+define("RDFOHLOH_BASE_DIR", "/home/wikier/rdfohloh.wikier.org/");
 define("RDFOHLOH_SRC", RDFOHLOH_BASE_DIR . "src/");
 define("RDFOHLOH_LIBS", RDFOHLOH_BASE_DIR . "lib/");
 define("RDFOHLOH_TPLS", RDFOHLOH_BASE_DIR . "tpl/");
-define("OHLOH_API_KEY", "d780e0279dc9b57e65bddc57afb8e2da63d4e28e");
-define("GOOGLEMAPS_API_KEY", "d780e0279dc9b57e65bddc57afb8e2da63d4e28e");
+define("OHLOH_API_KEY", "OHLOH_API_KEY");
+define("GOOGLEMAPS_API_KEY", "GOOGLEMAPS_API_KEY");
 define("HOME", "home");
 define("ABOUT", "about");
 define("PROJECT", "project");
