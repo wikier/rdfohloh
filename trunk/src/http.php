@@ -35,7 +35,7 @@ function rdfohloh_get_entitiy_destination() {
     $sections = array(HOME, ABOUT);
     $types = array(PROJECT, USER);
     $formats = array(HTML, RDF, N3);
-    $splitted = split("/", $path);
+    $splitted =  preg_split("/", $path);
     switch(count($splitted)) {
 
         case 1: 
@@ -54,7 +54,7 @@ function rdfohloh_get_entitiy_destination() {
                 $type = $splitted[0];
                 $dest = $splitted[1];
                 if (contains($dest, ".")) {
-                    $splitted2 = split("\.", $dest);
+                    $splitted2 = preg_split("\.", $dest);
                     $resource = $splitted2[0];
                     $format = $splitted2[1];
                     if (in_array($type, $types) && in_array($format, $formats)) {

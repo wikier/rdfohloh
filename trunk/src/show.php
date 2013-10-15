@@ -27,7 +27,7 @@ function rdfohloh_show_debug($path) {
 
 function rdfohloh_show($path) {
     //FIXME
-    $splitted = split("/", $path);
+    $splitted =  preg_split("/", $path);
     $type = $splitted[0];
     switch (count($splitted)) {
 
@@ -36,7 +36,7 @@ function rdfohloh_show($path) {
                 break;
 
         case 2:
-                $splitted2 = split("\.", $splitted[1]);
+                $splitted2 = preg_split("\.", $splitted[1]);
                 $resource = $splitted2[0];
                 $format = $splitted2[1];
                 show_entity($type, $resource, $format);
