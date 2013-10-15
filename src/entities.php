@@ -32,7 +32,7 @@ class StaticSection {
     }
 
     function getHTML() {
-        $tpl =& new RDFohloh_Static_Section_Smarty;
+        $tpl = new RDFohloh_Static_Section_Smarty();
         $tpl->assign("name", $this->name);
         $tpl->assign("ROOT", RDFOHLOH_BASE_URI);
         $tpl->assign("YEAR", date("Y"));
@@ -99,7 +99,7 @@ EXCERPT;
     }
 
     function getHTML() {
-        $tpl =& new RDFohloh_Project_Smarty;
+        $tpl = new RDFohloh_Project_Smarty();
         $tpl->assign("ROOT", RDFOHLOH_BASE_URI);
         $tpl->assign("YEAR", date("Y"));
         if ($this->exists) { 
@@ -319,7 +319,7 @@ EXCERPT;
     }
 
     function getHTML() {
-        $tpl =& new RDFohloh_Project_Smarty;
+        $tpl = new RDFohloh_Project_Smarty();
         $tpl->assign("ROOT", RDFOHLOH_BASE_URI);
         $tpl->assign("YEAR", date("Y"));
         if ($this->exists) {
